@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Путь входящего счёта и УПД</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: oklch(98.8% 0.003 100);
+      --color-paper-2: oklch(95.6% 0.006 100);
+      --color-sheet: oklch(100% 0 0);
+      --color-ink: oklch(20% 0.008 100);
+      --color-ink-2: oklch(40% 0.008 100);
+      --color-ink-3: oklch(52% 0.008 100);
+      --color-rule: oklch(87% 0.006 100);
+      --color-accent: oklch(90% 0.175 98);
+      --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    body { font-family: var(--font-body); background: var(--color-paper); color: var(--color-ink); padding: 3rem 2rem; }
+    .frame { max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-2); margin-bottom: 0.5rem; }
+    h1 { font-size: 1.75rem; font-weight: 600; font-stretch: 80%; line-height: 1.15; margin-bottom: 1.5rem; }
+
+    .dg { display: block; width: 100%; height: auto; }
+    .dg text { font-family: var(--font-body); fill: var(--color-ink); }
+    .dg-mask { fill: var(--dg-ground, var(--color-paper)); }
+    .dg-node { stroke-width: 1; }
+    .dg-node--step { fill: var(--color-sheet); stroke: var(--color-ink); }
+    .dg-node--focal { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.5; }
+    .dg-node--system { fill: var(--color-paper-2); stroke: var(--color-ink-3); }
+    .dg-name { font-size: 12px; font-weight: 600; }
+    .dg-layer { font-size: 15px; font-weight: 600; }
+    .dg .dg-sub, .dg .dg-label, .dg .dg-lane { font-family: var(--font-mono); fill: var(--color-ink-2); }
+    .dg-sub { font-size: 9.5px; }
+    .dg-label { font-size: 10px; }
+    .dg .dg-lane { font-size: 11px; font-weight: 500; fill: var(--color-ink); }
+    .dg-rule { stroke: var(--color-rule); stroke-width: 1; }
+    .dg-arrow { fill: none; stroke: var(--color-ink-2); stroke-width: 1.2; }
+    .dg-arrow--dashed { stroke-dasharray: 5 4; }
+    .dg-head { fill: var(--color-ink-2); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Flowchart — Экспедиторская</p>
+    <h1>Путь входящего счёта и УПД</h1>
+<svg class="dg" viewBox="0 0 1000 366" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-invoices-title dg-invoices-desc">
+<title id="dg-invoices-title">Путь входящего счёта и УПД</title>
+<desc id="dg-invoices-desc">Счёт или УПД перевозчика приходит по почте или через ЭДО — оба канала работают параллельно. Документ заводится в системе, логист проверяет его. Принятый документ выгружается в 1С и идёт на оплату. Некорректный переходит к оспариванию: переписка и статус ведутся в системе, исправленный документ возвращается на проверку.</desc>
+<defs>
+<marker id="dg-invoices-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<path class="dg-arrow" d="M152,68 H176 Q184,68 184,76 V88 Q184,96 192,96 H215" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M152,152 H176 Q184,152 184,144 V132 Q184,124 192,124 H215" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M368,110 H399" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M600,110 H659" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M804,110 H851" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M500,158 V225" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow dg-arrow--dashed" d="M408,258 H300 Q292,258 292,250 V147" marker-end="url(#dg-invoices-arrow)"/>
+<rect class="dg-mask" x="606" y="89" width="24" height="15" rx="2"/><text class="dg-label" x="612" y="100" text-anchor="start">да</text>
+<rect class="dg-mask" x="506" y="185" width="31" height="15" rx="2"/><text class="dg-label" x="512" y="196" text-anchor="start">нет</text>
+<rect class="dg-mask" x="298" y="195" width="142" height="15" rx="2"/><text class="dg-label" x="304" y="206" text-anchor="start">исправленный документ</text>
+<rect class="dg-mask" x="24" y="40" width="128" height="56" rx="6"/>
+<rect class="dg-node dg-node--system" x="24" y="40" width="128" height="56" rx="6"/>
+<text class="dg-name" x="88.0" y="65.0" text-anchor="middle">Почта</text>
+<text class="dg-sub" x="88.0" y="81.0" text-anchor="middle">счёт или УПД в PDF</text>
+<rect class="dg-mask" x="24" y="124" width="128" height="56" rx="6"/>
+<rect class="dg-node dg-node--system" x="24" y="124" width="128" height="56" rx="6"/>
+<text class="dg-name" x="88.0" y="149.0" text-anchor="middle">ЭДО</text>
+<text class="dg-sub" x="88.0" y="165.0" text-anchor="middle">Диадок, Saby</text>
+<rect class="dg-mask" x="216" y="74" width="152" height="72" rx="6"/>
+<rect class="dg-node dg-node--step" x="216" y="74" width="152" height="72" rx="6"/>
+<text class="dg-name" x="292.0" y="99.5" text-anchor="middle">Счёт или УПД</text>
+<text class="dg-name" x="292.0" y="114.5" text-anchor="middle">заведён в системе</text>
+<text class="dg-sub" x="292.0" y="130.5" text-anchor="middle">распознан из PDF/XML</text>
+<polygon class="dg-mask" points="500,62.0 600.0,110 500,158.0 400.0,110"/>
+<polygon class="dg-node dg-node--step" points="500,62.0 600.0,110 500,158.0 400.0,110"/>
+<text class="dg-name" x="500" y="106.0" text-anchor="middle">Логист проверяет:</text>
+<text class="dg-name" x="500" y="121.0" text-anchor="middle">всё верно?</text>
+<rect class="dg-mask" x="660" y="78" width="144" height="64" rx="6"/>
+<rect class="dg-node dg-node--focal" x="660" y="78" width="144" height="64" rx="6"/>
+<text class="dg-name" x="732.0" y="107.0" text-anchor="middle">Выгрузка в 1С</text>
+<text class="dg-sub" x="732.0" y="123.0" text-anchor="middle">учёт в бухгалтерии</text>
+<rect class="dg-mask" x="852" y="78" width="124" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="852" y="78" width="124" height="64" rx="6"/>
+<text class="dg-name" x="914.0" y="107.0" text-anchor="middle">Оплата</text>
+<text class="dg-sub" x="914.0" y="123.0" text-anchor="middle">заявка на оплату</text>
+<rect class="dg-mask" x="408" y="226" width="184" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="408" y="226" width="184" height="64" rx="6"/>
+<text class="dg-name" x="500.0" y="255.0" text-anchor="middle">Оспаривание (dispute)</text>
+<text class="dg-sub" x="500.0" y="271.0" text-anchor="middle">переписка и статус в системе</text>
+<line class="dg-rule" x1="24" y1="322" x2="976" y2="322"/>
+<rect class="dg-node dg-node--focal" x="24" y="332" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="342">в 1С уходят только принятые документы</text>
+<rect class="dg-node dg-node--step" x="309" y="332" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="333" y="342">работа в системе</text>
+<rect class="dg-node dg-node--system" x="464" y="332" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="488" y="342">канал получения</text>
+</svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Откроется ли запись сотруднику</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: oklch(98.8% 0.003 100);
+      --color-paper-2: oklch(95.6% 0.006 100);
+      --color-sheet: oklch(100% 0 0);
+      --color-ink: oklch(20% 0.008 100);
+      --color-ink-2: oklch(40% 0.008 100);
+      --color-ink-3: oklch(52% 0.008 100);
+      --color-rule: oklch(87% 0.006 100);
+      --color-accent: oklch(90% 0.175 98);
+      --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    body { font-family: var(--font-body); background: var(--color-paper); color: var(--color-ink); padding: 3rem 2rem; }
+    .frame { max-width: 816px; margin: 0 auto; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-2); margin-bottom: 0.5rem; }
+    h1 { font-size: 1.75rem; font-weight: 600; font-stretch: 80%; line-height: 1.15; margin-bottom: 1.5rem; }
+
+    .dg { display: block; width: 100%; height: auto; }
+    .dg text { font-family: var(--font-body); fill: var(--color-ink); }
+    .dg-mask { fill: var(--dg-ground, var(--color-paper)); }
+    .dg-node { stroke-width: 1; }
+    .dg-node--step { fill: var(--color-sheet); stroke: var(--color-ink); }
+    .dg-node--focal { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.5; }
+    .dg-node--system { fill: var(--color-paper-2); stroke: var(--color-ink-3); }
+    .dg-name { font-size: 12px; font-weight: 600; }
+    .dg-layer { font-size: 15px; font-weight: 600; }
+    .dg .dg-sub, .dg .dg-label, .dg .dg-lane { font-family: var(--font-mono); fill: var(--color-ink-2); }
+    .dg-sub { font-size: 9.5px; }
+    .dg-label { font-size: 10px; }
+    .dg .dg-lane { font-size: 11px; font-weight: 500; fill: var(--color-ink); }
+    .dg-rule { stroke: var(--color-rule); stroke-width: 1; }
+    .dg-arrow { fill: none; stroke: var(--color-ink-2); stroke-width: 1.2; }
+    .dg-arrow--dashed { stroke-dasharray: 5 4; }
+    .dg-head { fill: var(--color-ink-2); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Flowchart — Экспедиторская</p>
+    <h1>Откроется ли запись сотруднику</h1>
+<svg class="dg" viewBox="0 0 616 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-access-title dg-access-desc">
+<title id="dg-access-title">Как система решает, откроется ли перевозка сотруднику</title>
+<desc id="dg-access-desc">Три проверки подряд: уровень доступа к разделу, организация и офис записи, участие сотрудника как ответственного или право видеть все записи. Если все пройдены, карточка открывается; финансовые поля требуют отдельного разрешения.</desc>
+<defs>
+<marker id="dg-access-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<path class="dg-arrow" d="M220,72 V99" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M220,180 V219" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M220,300 V339" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M220,420 V459" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M340,140 H492 Q500,140 500,148 V227" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M340,260 H411" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M340,380 H492 Q500,380 500,372 V293" marker-end="url(#dg-access-arrow)"/>
+<rect class="dg-mask" x="354" y="119" width="31" height="15" rx="2"/><text class="dg-label" x="360" y="130" text-anchor="start">нет</text>
+<rect class="dg-mask" x="354" y="239" width="31" height="15" rx="2"/><text class="dg-label" x="360" y="250" text-anchor="start">нет</text>
+<rect class="dg-mask" x="354" y="359" width="31" height="15" rx="2"/><text class="dg-label" x="360" y="370" text-anchor="start">нет</text>
+<rect class="dg-mask" x="226" y="193" width="24" height="15" rx="2"/><text class="dg-label" x="232" y="204" text-anchor="start">да</text>
+<rect class="dg-mask" x="226" y="313" width="24" height="15" rx="2"/><text class="dg-label" x="232" y="324" text-anchor="start">да</text>
+<rect class="dg-mask" x="226" y="433" width="24" height="15" rx="2"/><text class="dg-label" x="232" y="444" text-anchor="start">да</text>
+<rect class="dg-mask" x="140" y="24" width="160" height="48" rx="24"/>
+<rect class="dg-node dg-node--step" x="140" y="24" width="160" height="48" rx="24"/>
+<text class="dg-name" x="220.0" y="44.0" text-anchor="middle">Сотрудник открывает</text>
+<text class="dg-name" x="220.0" y="59.0" text-anchor="middle">перевозку</text>
+<polygon class="dg-mask" points="220,100.0 340.0,140 220,180.0 100.0,140"/>
+<polygon class="dg-node dg-node--step" points="220,100.0 340.0,140 220,180.0 100.0,140"/>
+<text class="dg-name" x="220" y="136.0" text-anchor="middle">Есть доступ</text>
+<text class="dg-name" x="220" y="151.0" text-anchor="middle">к разделу?</text>
+<polygon class="dg-mask" points="220,220.0 340.0,260 220,300.0 100.0,260"/>
+<polygon class="dg-node dg-node--step" points="220,220.0 340.0,260 220,300.0 100.0,260"/>
+<text class="dg-name" x="220" y="256.0" text-anchor="middle">Его организация</text>
+<text class="dg-name" x="220" y="271.0" text-anchor="middle">и офис?</text>
+<polygon class="dg-mask" points="220,340.0 340.0,380 220,420.0 100.0,380"/>
+<polygon class="dg-node dg-node--step" points="220,340.0 340.0,380 220,420.0 100.0,380"/>
+<text class="dg-name" x="220" y="376.0" text-anchor="middle">Он ответственный</text>
+<text class="dg-name" x="220" y="391.0" text-anchor="middle">или открыты все?</text>
+<rect class="dg-mask" x="140" y="460" width="160" height="56" rx="24"/>
+<rect class="dg-node dg-node--focal" x="140" y="460" width="160" height="56" rx="24"/>
+<text class="dg-name" x="220.0" y="485.0" text-anchor="middle">Карточка открыта</text>
+<text class="dg-sub" x="220.0" y="501.0" text-anchor="middle">финансы — отдельно</text>
+<rect class="dg-mask" x="412" y="228" width="176" height="64" rx="24"/>
+<rect class="dg-node dg-node--system" x="412" y="228" width="176" height="64" rx="24"/>
+<text class="dg-name" x="500.0" y="257.0" text-anchor="middle">Запись не видна</text>
+<text class="dg-sub" x="500.0" y="273.0" text-anchor="middle">ни в списке, ни по ссылке</text>
+<text class="dg-sub" x="24" y="548">Уровень раздела и разрешения берутся у сотрудника,</text>
+<text class="dg-sub" x="24" y="562">а если не заданы — у его группы.</text>
+<line class="dg-rule" x1="24" y1="582" x2="592" y2="582"/>
+<rect class="dg-node dg-node--focal" x="24" y="592" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="602">доступ есть</text>
+<rect class="dg-node dg-node--system" x="148" y="592" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="172" y="602">доступа нет</text>
+<rect class="dg-node dg-node--step" x="272" y="592" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="296" y="602">проверка</text>
+</svg>
+  </div>
+</body>
+</html>

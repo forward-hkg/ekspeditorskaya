@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Путь задачи: кто что делает</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: oklch(98.8% 0.003 100);
+      --color-paper-2: oklch(95.6% 0.006 100);
+      --color-sheet: oklch(100% 0 0);
+      --color-ink: oklch(20% 0.008 100);
+      --color-ink-2: oklch(40% 0.008 100);
+      --color-ink-3: oklch(52% 0.008 100);
+      --color-rule: oklch(87% 0.006 100);
+      --color-accent: oklch(90% 0.175 98);
+      --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    body { font-family: var(--font-body); background: var(--color-paper); color: var(--color-ink); padding: 3rem 2rem; }
+    .frame { max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-2); margin-bottom: 0.5rem; }
+    h1 { font-size: 1.75rem; font-weight: 600; font-stretch: 80%; line-height: 1.15; margin-bottom: 1.5rem; }
+
+    .dg { display: block; width: 100%; height: auto; }
+    .dg text { font-family: var(--font-body); fill: var(--color-ink); }
+    .dg-mask { fill: var(--dg-ground, var(--color-paper)); }
+    .dg-node { stroke-width: 1; }
+    .dg-node--step { fill: var(--color-sheet); stroke: var(--color-ink); }
+    .dg-node--focal { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.5; }
+    .dg-node--system { fill: var(--color-paper-2); stroke: var(--color-ink-3); }
+    .dg-name { font-size: 12px; font-weight: 600; }
+    .dg-layer { font-size: 15px; font-weight: 600; }
+    .dg .dg-sub, .dg .dg-label, .dg .dg-lane { font-family: var(--font-mono); fill: var(--color-ink-2); }
+    .dg-sub { font-size: 9.5px; }
+    .dg-label { font-size: 10px; }
+    .dg .dg-lane { font-size: 11px; font-weight: 500; fill: var(--color-ink); }
+    .dg-rule { stroke: var(--color-rule); stroke-width: 1; }
+    .dg-arrow { fill: none; stroke: var(--color-ink-2); stroke-width: 1.2; }
+    .dg-arrow--dashed { stroke-dasharray: 5 4; }
+    .dg-head { fill: var(--color-ink-2); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Swimlane — Экспедиторская</p>
+    <h1>Путь задачи: кто что делает</h1>
+<svg class="dg" viewBox="0 0 1000 408" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-tasks-title dg-tasks-desc">
+<title id="dg-tasks-title">Путь задачи: постановщик, система, исполнитель</title>
+<desc id="dg-tasks-desc">Постановщик ставит задачу из карточки, система уведомляет участников, исполнитель берёт её в работу, уточняет детали в комментариях и закрывает; система ставит дату завершения и сообщает постановщику.</desc>
+<defs>
+<marker id="dg-tasks-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<line class="dg-rule" x1="24" y1="40" x2="976" y2="40"/>
+<text class="dg-lane" x="24" y="94">Постановщик</text>
+<line class="dg-rule" x1="24" y1="140" x2="976" y2="140"/>
+<text class="dg-lane" x="24" y="194">Система</text>
+<line class="dg-rule" x1="24" y1="240" x2="976" y2="240"/>
+<text class="dg-lane" x="24" y="294">Исполнитель</text>
+<line class="dg-rule" x1="24" y1="340" x2="976" y2="340"/>
+<path class="dg-arrow" d="M252,90 H332 Q340,90 340,98 V157" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M396,190 H476 Q484,190 484,198 V257" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M540,290 H571" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M628,258 V123" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M684,90 H764 Q772,90 772,98 V257" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M828,290 H908 Q916,290 916,282 V223" marker-end="url(#dg-tasks-arrow)"/>
+<rect class="dg-mask" x="636" y="183" width="49" height="15" rx="2"/><text class="dg-label" x="642" y="194" text-anchor="start">вопрос</text>
+<rect class="dg-mask" x="780" y="183" width="43" height="15" rx="2"/><text class="dg-label" x="786" y="194" text-anchor="start">ответ</text>
+<rect class="dg-mask" x="140" y="58" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--focal" x="140" y="58" width="112" height="64" rx="6"/>
+<text class="dg-name" x="196.0" y="79.5" text-anchor="middle">Ставит задачу</text>
+<text class="dg-name" x="196.0" y="94.5" text-anchor="middle">из карточки</text>
+<text class="dg-sub" x="196.0" y="110.5" text-anchor="middle">статус: новая</text>
+<rect class="dg-mask" x="284" y="158" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--system" x="284" y="158" width="112" height="64" rx="6"/>
+<text class="dg-name" x="340.0" y="179.5" text-anchor="middle">Уведомляет</text>
+<text class="dg-name" x="340.0" y="194.5" text-anchor="middle">участников</text>
+<text class="dg-sub" x="340.0" y="210.5" text-anchor="middle">Email, Telegram</text>
+<rect class="dg-mask" x="428" y="258" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="428" y="258" width="112" height="64" rx="6"/>
+<text class="dg-name" x="484.0" y="287.0" text-anchor="middle">Берёт в работу</text>
+<text class="dg-sub" x="484.0" y="303.0" text-anchor="middle">статус: в работе</text>
+<rect class="dg-mask" x="572" y="258" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="572" y="258" width="112" height="64" rx="6"/>
+<text class="dg-name" x="628.0" y="279.5" text-anchor="middle">Задаёт вопрос</text>
+<text class="dg-name" x="628.0" y="294.5" text-anchor="middle">в комментариях</text>
+<text class="dg-sub" x="628.0" y="310.5" text-anchor="middle">ждёт ответа</text>
+<rect class="dg-mask" x="572" y="58" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="572" y="58" width="112" height="64" rx="6"/>
+<text class="dg-name" x="628.0" y="86.0" text-anchor="middle">Отвечает</text>
+<text class="dg-name" x="628.0" y="101.0" text-anchor="middle">в комментариях</text>
+<rect class="dg-mask" x="716" y="258" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="716" y="258" width="112" height="64" rx="6"/>
+<text class="dg-name" x="772.0" y="279.5" text-anchor="middle">Закрывает</text>
+<text class="dg-name" x="772.0" y="294.5" text-anchor="middle">задачу</text>
+<text class="dg-sub" x="772.0" y="310.5" text-anchor="middle">статус: выполнена</text>
+<rect class="dg-mask" x="860" y="158" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--system" x="860" y="158" width="112" height="64" rx="6"/>
+<text class="dg-name" x="916.0" y="179.5" text-anchor="middle">Ставит дату</text>
+<text class="dg-name" x="916.0" y="194.5" text-anchor="middle">завершения</text>
+<text class="dg-sub" x="916.0" y="210.5" text-anchor="middle">письмо автору</text>
+<line class="dg-rule" x1="24" y1="364" x2="976" y2="364"/>
+<rect class="dg-node dg-node--focal" x="24" y="374" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="384">задача создаётся из карточки записи</text>
+<rect class="dg-node dg-node--step" x="297" y="374" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="321" y="384">действие сотрудника</text>
+<rect class="dg-node dg-node--system" x="471" y="374" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="495" y="384">действие системы</text>
+</svg>
+  </div>
+</body>
+</html>

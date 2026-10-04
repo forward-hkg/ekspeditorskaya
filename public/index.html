@@ -1,0 +1,2024 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Экспедиторская — система управления транспортно-экспедиторской компанией</title>
+  <meta name="description" content="Котировки, перевозки, подрядчики, документы и финансы экспедитора в одной системе. Маржа по каждой перевозке, обмен с 1С, Диадок и Saby, ЭТрН. Установка на ваш сервер, исходный код передаётся.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fbfbf9">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Экспедиторская — система управления транспортно-экспедиторской компанией">
+  <meta property="og:description" content="От запроса клиента до прибыли по перевозке — в одной системе. На вашем сервере, с вашей 1С и операторами ЭДО; исходный код остаётся у вас.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/plex-sans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero-card.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <noscript><style>.tabs__panel[hidden], .roles__panel[hidden] { display: block; margin-top: 2rem; }</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap site-header__row">
+      <a class="wordmark" href="#top" aria-label="Экспедиторская — в начало страницы"><span class="wordmark__text">Экспедиторская</span></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Разделы страницы">
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">Обзор</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#pains">Знакомые задачи</a></li>
+            <li><a class="nav-group__link" href="#how">Путь перевозки</a></li>
+            <li><a class="nav-group__link" href="#roles">Что получает каждый</a></li>
+          </ul>
+        </details>
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">Возможности</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#sales">Продажи и котировки</a></li>
+            <li><a class="nav-group__link" href="#shipment">Перевозка</a></li>
+            <li><a class="nav-group__link" href="#money">Деньги</a></li>
+            <li><a class="nav-group__link" href="#vinvoice">Входящие счета</a></li>
+            <li><a class="nav-group__link" href="#documents">Документы</a></li>
+            <li><a class="nav-group__link" href="#control">Отчёты</a></li>
+            <li><a class="nav-group__link" href="#api">API</a></li>
+          </ul>
+        </details>
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">Стандарты</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#integrations">1С, ЭДО и ЭПД</a></li>
+            <li><a class="nav-group__link" href="#vat">НДС 0 %</a></li>
+            <li><a class="nav-group__link" href="#epd">ЭПД и ЭТрН</a></li>
+            <li><a class="nav-group__link" href="#gost">ГОСТ Р 72552–2026</a></li>
+          </ul>
+        </details>
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">Коммуникация</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#team">Работа команды</a></li>
+            <li><a class="nav-group__link" href="#comments">Комментарии</a></li>
+            <li><a class="nav-group__link" href="#mail">Переписка с клиентами</a></li>
+            <li><a class="nav-group__link" href="#tasks">Задачи</a></li>
+            <li><a class="nav-group__link" href="#workspace">Рабочее место</a></li>
+          </ul>
+        </details>
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">Права и аудит</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#access">Права доступа</a></li>
+            <li><a class="nav-group__link" href="#changelog">Журнал изменений</a></li>
+            <li><a class="nav-group__link" href="#activity">Аналитика действий</a></li>
+          </ul>
+        </details>
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">ИИ</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#ai">ИИ-помощник и MCP</a></li>
+            <li><a class="nav-group__link" href="#vibe">Экспедиторский Вайб</a></li>
+          </ul>
+        </details>
+        <details class="nav-group" name="site-nav">
+          <summary class="site-nav__link">Ваш сервер</summary>
+          <ul class="nav-group__menu">
+            <li><a class="nav-group__link" href="#ownership">Независимость от разработчика</a></li>
+            <li><a class="nav-group__link" href="#extensions">Расширения</a></li>
+            <li><a class="nav-group__link" href="#start">Как мы начнём</a></li>
+          </ul>
+        </details>
+        <a class="site-nav__link" href="#faq">Вопросы</a>
+      </nav>
+
+      <a class="btn btn--primary btn--compact site-header__cta" href="#request">Запросить стоимость</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Меню</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 01. Первый экран -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <h1 class="hero__title" id="hero-title">От запроса клиента до прибыли по перевозке — в одной системе</h1>
+
+        <div class="hero__copy">
+          <p class="hero__lead">Котировки, перевозки, подрядчики, документы, счета и оплаты связаны между собой. Данные вносятся один раз, а маржа каждой перевозки видна на любом этапе.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#request">Запросить стоимость</a>
+            <a class="link-quiet" href="#request">Посмотреть демонстрацию</a>
+          </div>
+          <p class="hero__note">Расскажите о задачах компании — подготовим предложение по составу системы и внедрению.</p>
+        </div>
+
+        <figure class="hero__figure">
+          <div class="hero__sheet">
+            <img class="hero__img" src="assets/img/hero-card.webp" width="2184" height="1624" alt="Экран системы: карточка перевозки 105551-S-1. Услуги «Авиа», «Доставка» и «Страхование» со статусом «Закрыто», клиент и договор, вкладки груза, маршрута, документов, ответственных и подрядчиков." fetchpriority="high" decoding="async">
+            <span class="flag flag--1" aria-hidden="true">Маршрут и статусы</span>
+            <span class="flag flag--2" aria-hidden="true">Документы и заявки</span>
+            <div class="hero__inset">
+              <img src="assets/img/fin-plan.webp" width="1000" height="124" alt="Фрагмент той же карточки: планируемая прибыль 1 207,39 USD, рентабельность по плану 29 %." decoding="async">
+              <img src="assets/img/fin-fact.webp" width="1000" height="168" alt="Фактическая прибыль 1 549,39 USD, рентабельность по счетам 41 %, отклонение от плана +342 USD." decoding="async">
+              <span class="flag flag--3" aria-hidden="true">Маржа перевозки</span>
+            </div>
+          </div>
+          <figcaption class="hero__legend">
+            <span>Маршрут и статусы</span>
+            <span>Документы и заявки</span>
+            <span>Маржа перевозки</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02. Полоса фактов -->
+    <section class="facts" aria-label="Факты о системе">
+      <div class="wrap">
+        <ul class="facts__list">
+          <li class="facts__item"><strong class="facts__figure">4</strong><span class="facts__text">вида транспорта в одной перевозке: авто, авиа, море, ж/д</span></li>
+          <li class="facts__item"><strong class="facts__figure">4</strong><span class="facts__text">электронных перевозочных документа, включая ЭТрН</span></li>
+          <li class="facts__item"><strong class="facts__figure">2</strong><span class="facts__text">оператора ЭДО: Контур.Диадок и Saby</span></li>
+          <li class="facts__item"><strong class="facts__figure">1С</strong><span class="facts__text">счета и акты — туда, УПД и оплаты — обратно</span></li>
+          <li class="facts__item"><strong class="facts__figure">200+</strong><span class="facts__text">руководств пользователя по разделам системы</span></li>
+          <li class="facts__item"><strong class="facts__figure">Код</strong><span class="facts__text">исходный код передаётся вам</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03. Знакомо? -->
+    <section class="section pains" id="pains" aria-labelledby="pains-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Обзор</span><span class="runhead__item">Знакомые задачи</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="pains-title">Знакомо?</h2>
+          <p class="section__lead">Пока компания небольшая, перевозки держатся на таблицах, почте и памяти сотрудников. Потом начинается это.</p>
+        </header>
+
+        <div class="pains__table" role="table" aria-label="Что меняется с системой">
+          <div class="pains__cols" role="row">
+            <span role="columnheader">Как сейчас</span>
+            <span role="columnheader">С «Экспедиторской»</span>
+          </div>
+          <div class="pains__row" role="row">
+            <p class="pains__quote" role="cell">«Маржу перевозки узнаём, когда всё уже закрыто»</p>
+            <p class="pains__answer" role="cell">Ожидаемая прибыль видна в котировке, прибыль по счетам — как только они выставлены.</p>
+          </div>
+          <div class="pains__row" role="row">
+            <p class="pains__quote" role="cell">«Логист переспрашивает менеджера, о чём договорились с клиентом»</p>
+            <p class="pains__answer" role="cell">Перевозка создаётся из согласованной котировки — условия уже в ней.</p>
+          </div>
+          <div class="pains__row" role="row">
+            <p class="pains__quote" role="cell">«Одно и то же вбиваем в заявку, счёт и 1С»</p>
+            <p class="pains__answer" role="cell">Данные вносятся один раз: бланки заполняются сами, счёт уходит в 1С.</p>
+          </div>
+          <div class="pains__row" role="row">
+            <p class="pains__quote" role="cell">«Сотрудник в отпуске — никто не знает, что с его перевозками»</p>
+            <p class="pains__answer" role="cell">Документы, переписка и задачи — в карточке; замещающий видит всю историю.</p>
+          </div>
+          <div class="pains__row" role="row">
+            <p class="pains__quote" role="cell">«О недостающих документах вспоминаем в конце квартала»</p>
+            <p class="pains__answer" role="cell">Система напоминает, если нет заявки, счёта или УПД.</p>
+          </div>
+          <div class="pains__row" role="row">
+            <p class="pains__quote" role="cell">«Чтобы понять, кто нам должен, бухгалтер полдня собирает таблицу»</p>
+            <p class="pains__answer" role="cell">Долги клиентов с возрастом просрочки — готовый отчёт.</p>
+          </div>
+        </div>
+
+        <p class="pains__bridge">«Экспедиторская» связывает всё это в одну историю перевозки.</p>
+      </div>
+    </section>
+
+    <!-- 04. Как это работает -->
+    <section class="section how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Обзор</span><span class="runhead__item">Путь перевозки</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="how-title">Одна перевозка — одна история: от запроса клиента до закрывающих документов</h2>
+        </header>
+
+        <ol class="route" data-route>
+          <li class="route__stop">
+            <span class="route__num" aria-hidden="true">1</span>
+            <h3 class="route__name">Запрос</h3>
+            <p class="route__text">Груз, маршрут, услуги и ответственные — в карточке. Ставки у агентов запрашиваются письмом прямо из неё.</p>
+          </li>
+          <li class="route__stop">
+            <span class="route__num" aria-hidden="true">2</span>
+            <h3 class="route__name">Котировка</h3>
+            <p class="route__text">Продажа и закупка услуг, прибыль и рентабельность — до отправки предложения. Вариантов может быть несколько.</p>
+          </li>
+          <li class="route__stop">
+            <span class="route__num" aria-hidden="true">3</span>
+            <h3 class="route__name">Перевозка</h3>
+            <p class="route__text">Клиент согласовал — перевозка создаётся из котировки. Маршрут, груз, подрядчики и плановые суммы уже на месте.</p>
+          </li>
+          <li class="route__stop">
+            <span class="route__num" aria-hidden="true">4</span>
+            <h3 class="route__name">Исполнение</h3>
+            <p class="route__text">Заявки клиенту и подрядчикам, расписки, транспортные документы — по вашим бланкам. Система напомнит, чего не хватает.</p>
+          </li>
+          <li class="route__stop">
+            <span class="route__num" aria-hidden="true">5</span>
+            <h3 class="route__name">Деньги и закрытие</h3>
+            <p class="route__text">Счёт клиенту уходит в 1С, оплаты и УПД возвращаются. Финансовая служба проверяет и закрывает перевозку.</p>
+          </li>
+        </ol>
+
+        <div class="route-base">
+          <ul class="route-base__list">
+            <li>Переписка</li>
+            <li>Задачи</li>
+            <li>Файлы</li>
+            <li>Маржа</li>
+          </ul>
+          <p class="route-base__note">на каждом шаге</p>
+        </div>
+
+        <div class="cta-row">
+          <p class="cta-row__text">Хотите увидеть этот путь на ваших перевозках? Напишите нам.</p>
+          <a class="btn btn--primary" href="#request">Запросить стоимость</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04а. Что получает каждый -->
+    <section class="section roles" id="roles" aria-labelledby="roles-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Обзор</span></p>
+        <h2 class="section__title" id="roles-title">Что получает каждый</h2>
+
+        <div class="roles__grid" data-tabs data-tabs-vertical>
+          <div class="roles__list" role="tablist" aria-label="Кому что даёт система" aria-orientation="vertical">
+            <button class="roles__tab" role="tab" type="button" id="role-tab-1" aria-controls="role-panel-1" aria-selected="true">Логист</button>
+            <button class="roles__tab" role="tab" type="button" id="role-tab-2" aria-controls="role-panel-2" aria-selected="false" tabindex="-1">Менеджер по продажам</button>
+            <button class="roles__tab" role="tab" type="button" id="role-tab-3" aria-controls="role-panel-3" aria-selected="false" tabindex="-1">Финансовая служба</button>
+            <button class="roles__tab" role="tab" type="button" id="role-tab-4" aria-controls="role-panel-4" aria-selected="false" tabindex="-1">Бухгалтерия</button>
+            <button class="roles__tab" role="tab" type="button" id="role-tab-5" aria-controls="role-panel-5" aria-selected="false" tabindex="-1">Руководитель</button>
+            <button class="roles__tab" role="tab" type="button" id="role-tab-6" aria-controls="role-panel-6" aria-selected="false" tabindex="-1">ИТ-служба</button>
+            <button class="roles__tab" role="tab" type="button" id="role-tab-7" aria-controls="role-panel-7" aria-selected="false" tabindex="-1">Ваш клиент</button>
+          </div>
+
+          <div class="roles__panels">
+            <div class="roles__panel" role="tabpanel" id="role-panel-1" aria-labelledby="role-tab-1">
+              <p class="roles__phrase">Одна карточка вместо таблиц, папок и переписки</p>
+              <ul class="roles__points">
+                <li>Документы по вашим бланкам</li>
+                <li>Напоминания о том, чего не хватает</li>
+                <li>Переписка с клиентом и подрядчиком — в карточке перевозки</li>
+                <li>Задачи и комментарии там же, где перевозка</li>
+              </ul>
+              <a class="link-more" href="#shipment">Как устроена перевозка</a>
+            </div>
+            <div class="roles__panel" role="tabpanel" id="role-panel-2" aria-labelledby="role-tab-2" hidden>
+              <p class="roles__phrase">Котировка с маржой — до отправки клиенту</p>
+              <ul class="roles__points">
+                <li>Ставки подрядчиков в запросе</li>
+                <li>Несколько вариантов предложения</li>
+                <li>Перевозка из котировки</li>
+                <li>Письма клиента — в запросе и котировке</li>
+              </ul>
+              <a class="link-more" href="#sales">Как устроены продажи</a>
+            </div>
+            <div class="roles__panel" role="tabpanel" id="role-panel-3" aria-labelledby="role-tab-3" hidden>
+              <p class="roles__phrase">Долги, оплаты и маржа — по каждой перевозке и каждому счёту</p>
+              <ul class="roles__points">
+                <li>Плановая и фактическая прибыль перевозки — до закрытия месяца</li>
+                <li>Долги клиентов и авансы по каждому счёту</li>
+                <li>Счета подрядчиков проверены до оплаты, спорные — в оспаривании</li>
+                <li>Заявки на оплату; оплаты приходят из 1С</li>
+              </ul>
+              <a class="link-more" href="#money">Как устроены деньги</a>
+            </div>
+            <div class="roles__panel" role="tabpanel" id="role-panel-4" aria-labelledby="role-tab-4" hidden>
+              <p class="roles__phrase">В 1С приходят готовые и проверенные документы</p>
+              <ul class="roles__points">
+                <li>Счёт клиенту выставляет логист — в 1С он приходит готовым, по нему позже делаются закрывающие документы</li>
+                <li>Счета и УПД подрядчиков проверяет логист или финансовая служба — в 1С попадают только одобренные и корректные</li>
+                <li>Реестр подтверждающих документов для НДС 0 % собирается автоматически — готовый отчёт сразу в 1С</li>
+              </ul>
+              <a class="link-more" href="#integrations">Как устроен обмен с 1С</a>
+            </div>
+            <div class="roles__panel" role="tabpanel" id="role-panel-5" aria-labelledby="role-tab-5" hidden>
+              <p class="roles__phrase">Маржа, загрузка команды и долги клиентов — без ручных сводок</p>
+              <ul class="roles__points">
+                <li>Отчёты по клиентам и сотрудникам, план / факт</li>
+                <li>Отчёты по расписанию</li>
+                <li>Задачи команды и просрочки</li>
+                <li>ИИ-помощник отвечает по данным системы</li>
+              </ul>
+              <a class="link-more" href="#control">Какие есть отчёты</a>
+            </div>
+            <div class="roles__panel" role="tabpanel" id="role-panel-6" aria-labelledby="role-tab-6" hidden>
+              <p class="roles__phrase">Свой сервер, исходный код, открытый стек</p>
+              <ul class="roles__points">
+                <li>Права до отдельного разрешения и аудит доступа</li>
+                <li>Двухфакторный вход</li>
+                <li>API и MCP для ваших систем и ИИ</li>
+                <li>Доработки в отдельном слое: «Экспедиторский Вайб»</li>
+              </ul>
+              <a class="link-more" href="#ownership">Как устроено размещение</a>
+            </div>
+            <div class="roles__panel" role="tabpanel" id="role-panel-7" aria-labelledby="role-tab-7" hidden>
+              <p class="roles__phrase">Клиент знает, где его груз, — без звонков и писем</p>
+              <ul class="roles__points">
+                <li>Небольшим клиентам — отчёты Excel по расписанию на Email: текущий статус груза и данные слежения</li>
+                <li>Крупным клиентам, которые переросли слежение в Excel, — <a href="#api">интеграция по API</a></li>
+              </ul>
+              <a class="link-more" href="#workspace">Как настроить рассылку по расписанию</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05–09а. Возможности -->
+    <div class="features" id="features">
+
+      <!-- 05. Продажи -->
+      <section class="section feature feature--split" id="sales" aria-labelledby="sales-title">
+        <div class="wrap feature__grid">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">Продажи и котировки</span></p>
+          <div class="feature__copy">
+            <p class="for-role">Менеджеру по продажам</p>
+            <h2 class="section__title" id="sales-title">Котировка, которая становится перевозкой</h2>
+            <p class="feature__text">Соберите ставки подрядчиков, посчитайте продажу и закупку, предложите клиенту несколько вариантов. Прибыль и рентабельность видны ещё до отправки предложения. Клиент согласился — перевозка создаётся из котировки, и логист сразу видит, о чём договорились.</p>
+            <ul class="ticks">
+              <li>Запрос ставок у агентов — письмом прямо из карточки запроса.</li>
+              <li>Несколько котировок на один запрос: разные маршруты, сроки и цены.</li>
+              <li>Причины отказа сохраняются: видно, почему проигрываются сделки.</li>
+              <li>Повторная перевозка — копированием запроса вместе с котировками.</li>
+            </ul>
+          </div>
+          <figure class="shot shot--bleed" style="--m-w:46rem;--m-x:-19rem">
+            <button class="shot__frame" type="button" data-lightbox="assets/img/quote-full.webp" data-lightbox-w="2400" data-lightbox-h="2163" data-lightbox-alt="Экран системы: котировка 105551-Q-1 целиком — маршрут Ахмадабад — Дели — Москва — Зеленоград, продажа и покупка услуг, прибыль и рентабельность.">
+              <span class="shot__canvas"><img src="assets/img/quote.webp" width="2300" height="1380" loading="lazy" decoding="async" alt="Экран системы: котировка 105551-Q-1. Слева таблица продажи услуг, справа — покупки; под ними итог: прибыль 911,48 USD, рентабельность 23 %."><span class="hl" style="--x:59.2%;--y:87%;--w:13.6%;--h:6.6%" aria-hidden="true"></span></span>
+            </button>
+            <figcaption class="shot__caption">
+              <span>Маржа видна до того, как предложение ушло клиенту.</span>
+              <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 06. Перевозка -->
+      <section class="section feature feature--wide" id="shipment" aria-labelledby="shipment-title">
+        <div class="wrap">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">Перевозка</span></p>
+          <div class="feature__lede">
+            <div class="feature__copy">
+              <p class="for-role">Логисту</p>
+              <h2 class="section__title" id="shipment-title">Всё по перевозке — в одной карточке</h2>
+              <p class="feature__text">Клиент и договор, груз и маршрут, подрядчики, транспортные документы, заявки, счета, файлы и переписка. Авиа, море, ж/д, авто и таможенные услуги ведутся в одной перевозке, у каждой услуги свой статус. Система напомнит, если не хватает заявки, счёта или УПД.</p>
+            </div>
+            <ul class="ticks">
+              <li>Мультимодальные и сборные перевозки: несколько услуг, подрядчиков и адресов.</li>
+              <li>Плановые и фактические даты по каждому пункту маршрута.</li>
+              <li>Свои фильтры, вкладки и колонки у каждого сотрудника.</li>
+              <li>Комплект документов по нескольким перевозкам — одним архивом или одним PDF.</li>
+            </ul>
+          </div>
+          <figure class="shot" style="--m-w:52rem;--m-x:-27rem">
+            <button class="shot__frame" type="button" data-lightbox="assets/img/list-full.webp" data-lightbox-w="2400" data-lightbox-h="2735" data-lightbox-alt="Экран системы: список перевозок целиком — фильтры и таблица с видами услуг, номерами, клиентами и пунктами маршрута.">
+              <span class="shot__canvas"><img src="assets/img/list.webp" width="2984" height="1600" loading="lazy" decoding="async" alt="Экран системы: список перевозок. В фильтре выбрано напоминание «Не хватает УПД для клиента», ниже — перевозки с видами услуг, номерами документов, клиентами и пунктами отправления и назначения."><span class="hl" style="--x:54.6%;--y:8.6%;--w:24%;--h:4.6%" aria-hidden="true"></span></span>
+            </button>
+            <figcaption class="shot__caption">
+              <span>Перевозки, которым не хватает документов, — одним фильтром.</span>
+              <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 07. Деньги -->
+      <section class="section feature money" id="money" aria-labelledby="money-title">
+        <div class="wrap">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">Деньги</span></p>
+          <header class="section__head">
+            <p class="for-role">Директору и финансовой службе</p>
+            <h2 class="section__title" id="money-title">Маржа каждой перевозки — до, во время и после</h2>
+            <p class="section__lead">План продаж и закупок показывает ожидаемую прибыль ещё в котировке. Счета клиенту и подрядчиков — прибыль по документам. Оплаты, авансы и долги — состояние расчётов. Все три слоя видны в карточке перевозки, и от любой суммы можно перейти к документу, который её сформировал.</p>
+          </header>
+
+          <ol class="layers">
+            <li class="layers__row">
+              <div class="layers__copy">
+                <h3 class="layers__name">План</h3>
+                <p>Продажа и закупка услуг, ожидаемая прибыль и рентабельность. Видно, выгодна ли перевозка, до того как она началась.</p>
+              </div>
+              <div class="layers__proof">
+                <img src="assets/img/fin-plan.webp" width="1000" height="124" loading="lazy" decoding="async" alt="Фрагмент карточки перевозки: планируемая прибыль 1 207,39 USD, рентабельность по плану 29 %.">
+              </div>
+            </li>
+            <li class="layers__row">
+              <div class="layers__copy">
+                <h3 class="layers__name">Счета</h3>
+                <p>Что выставлено клиенту и что предъявили подрядчики. Счёт подрядчика больше плана — это заметно сразу.</p>
+              </div>
+              <div class="layers__proof">
+                <img src="assets/img/fin-fact.webp" width="1000" height="168" loading="lazy" decoding="async" alt="Фрагмент карточки перевозки: фактическая прибыль по счетам 1 549,39 USD, рентабельность 41 %, отклонение от плана +342 USD.">
+              </div>
+            </li>
+            <li class="layers__row">
+              <div class="layers__copy">
+                <h3 class="layers__name">Оплаты</h3>
+                <p>Поступления, списания, авансы и остаток долга по каждому счёту.</p>
+              </div>
+              <div class="layers__proof layers__proof--table">
+                <img src="assets/img/fin-invoices.webp" width="1776" height="860" loading="lazy" decoding="async" alt="Фрагмент карточки перевозки: три счёта клиенту с отметкой об оплате, суммами в валюте счёта и эквивалентом в рублях и долларах.">
+              </div>
+            </li>
+          </ol>
+
+          <p class="money__caption">
+            <span>Это фрагменты одной карточки перевозки. На экране «планируемая прибыль» — ожидаемая, по плану продаж и закупок; «фактическая» — по выставленным счетам.</span>
+            <button class="shot__zoom" type="button" data-lightbox="assets/img/money-full.webp" data-lightbox-w="2400" data-lightbox-h="1947" data-lightbox-alt="Экран системы: деньги перевозки 105551-S-1 целиком — продажа и покупка, счета клиенту и подрядчиков, УПД и акты, планируемая и фактическая прибыль.">Экран целиком</button>
+          </p>
+
+          <ul class="ticks ticks--cols">
+            <li>Счёт клиенту — из строк перевозки, с реквизитами, договором и сроком оплаты.</li>
+            <li><a class="ticks__link" href="#vinvoice">Счета подрядчиков</a> проверяют ответственные; на оплату они уходят заявкой для бухгалтерии.</li>
+            <li>Частичные оплаты, авансы, валюты и курсы.</li>
+            <li>Проверенная перевозка защищена от правок; финансы видны только по отдельному праву.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 07а. Входящие счета -->
+      <section class="section vinvoice" id="vinvoice" aria-labelledby="vinvoice-title">
+        <div class="wrap">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">Входящие счета</span></p>
+          <div class="pair pair--wide-side">
+            <div class="pair__main">
+              <p class="for-role">Логисту и финансовой службе</p>
+              <h2 class="section__title" id="vinvoice-title">Регистрация и проверка входящих счетов от перевозчиков</h2>
+              <p class="section__lead">Счёт или УПД перевозчика приходит на почту или по ЭДО — оба канала подключаются параллельно. Система распознаёт документ и связывает его с перевозкой, логист проверяет. В бухгалтерию попадает только то, что принято.</p>
+              <ul class="ticks">
+                <li>Встроенный парсер читает PDF-счета по стандартной форме 1С «Счёт на оплату»: реквизиты сторон, номер и дату, валюту, строки, суммы и НДС.</li>
+                <li>Парсеры под форматы других перевозчиков легко добавить. Нестандартный счёт или скан разбирает ИИ — умное распознавание без отдельной настройки под каждый бланк.</li>
+                <li>Подрядчик определяется по ИНН и КПП, договор — по номеру и дате, строки привязываются к перевозкам. Исходные файлы остаются вложениями счёта.</li>
+                <li>Повторный счёт с тем же номером, датой и подрядчиком система не сохранит и покажет ссылку на уже заведённый.</li>
+              </ul>
+            </div>
+
+            <figure class="shot pair__side" style="--m-w:36rem;--m-x:0rem">
+              <button class="shot__frame" type="button" data-lightbox="assets/img/vinvoice.webp" data-lightbox-w="2000" data-lightbox-h="1244" data-lightbox-alt="Экран системы: карточка счёта от подрядчика № 243 — подрядчик, сумма, задолженность, срок оплаты, договор, клиент; строка счёта привязана к перевозке 103906-S-279; блок «Ответственные за проверку» со статусом проверки.">
+                <span class="shot__canvas"><img src="assets/img/vinvoice.webp" width="2000" height="1244" loading="lazy" decoding="async" alt="Экран системы: карточка счёта от подрядчика. Сумма 56 670 RUB, статус оплаты «Не оплачен», строка «Доставка груза РФ» привязана к перевозке 103906-S-279 с номером авианакладной и декларации. Внизу блок «Ответственные за проверку»: Павел Прохоров, статус «Новый — на проверке»."><span class="hl" style="--x:1%;--y:90.3%;--w:23.8%;--h:5.6%" aria-hidden="true"></span></span>
+              </button>
+              <figcaption class="shot__caption">
+                <span>Карточка счёта: строка привязана к перевозке, у ответственного свой статус проверки.</span>
+                <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="feature__extra vinvoice__check">
+            <h3 class="subhead">В 1С уходит только проверенное</h3>
+            <p class="feature__text">У счёта есть ответственные за проверку, у каждого свой статус: на проверке, принят, отклонён. Логист сверяет услуги и суммы с планом закупки перевозки. Принятый счёт или УПД выгружается в 1С для учёта в бухгалтерии и уходит на оплату. Некорректный переходит к процедуре оспаривания (dispute): причина спора, переписка с перевозчиком и текущий статус ведутся в карточке счёта, а не в личной почте.</p>
+            <figure class="diagram diagram--wide">
+              <div class="diagram__scroll">
+<!-- diagram:dg-invoices -->
+<svg class="dg" viewBox="0 0 1000 366" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-invoices-title dg-invoices-desc">
+<title id="dg-invoices-title">Путь входящего счёта и УПД</title>
+<desc id="dg-invoices-desc">Счёт или УПД перевозчика приходит по почте или через ЭДО — оба канала работают параллельно. Документ заводится в системе, логист проверяет его. Принятый документ выгружается в 1С и идёт на оплату. Некорректный переходит к оспариванию: переписка и статус ведутся в системе, исправленный документ возвращается на проверку.</desc>
+<defs>
+<marker id="dg-invoices-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<path class="dg-arrow" d="M152,68 H176 Q184,68 184,76 V88 Q184,96 192,96 H215" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M152,152 H176 Q184,152 184,144 V132 Q184,124 192,124 H215" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M368,110 H399" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M600,110 H659" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M804,110 H851" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow" d="M500,158 V225" marker-end="url(#dg-invoices-arrow)"/>
+<path class="dg-arrow dg-arrow--dashed" d="M408,258 H300 Q292,258 292,250 V147" marker-end="url(#dg-invoices-arrow)"/>
+<rect class="dg-mask" x="606" y="89" width="24" height="15" rx="2"/><text class="dg-label" x="612" y="100" text-anchor="start">да</text>
+<rect class="dg-mask" x="506" y="185" width="31" height="15" rx="2"/><text class="dg-label" x="512" y="196" text-anchor="start">нет</text>
+<rect class="dg-mask" x="298" y="195" width="142" height="15" rx="2"/><text class="dg-label" x="304" y="206" text-anchor="start">исправленный документ</text>
+<rect class="dg-mask" x="24" y="40" width="128" height="56" rx="6"/>
+<rect class="dg-node dg-node--system" x="24" y="40" width="128" height="56" rx="6"/>
+<text class="dg-name" x="88.0" y="65.0" text-anchor="middle">Почта</text>
+<text class="dg-sub" x="88.0" y="81.0" text-anchor="middle">счёт или УПД в PDF</text>
+<rect class="dg-mask" x="24" y="124" width="128" height="56" rx="6"/>
+<rect class="dg-node dg-node--system" x="24" y="124" width="128" height="56" rx="6"/>
+<text class="dg-name" x="88.0" y="149.0" text-anchor="middle">ЭДО</text>
+<text class="dg-sub" x="88.0" y="165.0" text-anchor="middle">Диадок, Saby</text>
+<rect class="dg-mask" x="216" y="74" width="152" height="72" rx="6"/>
+<rect class="dg-node dg-node--step" x="216" y="74" width="152" height="72" rx="6"/>
+<text class="dg-name" x="292.0" y="99.5" text-anchor="middle">Счёт или УПД</text>
+<text class="dg-name" x="292.0" y="114.5" text-anchor="middle">заведён в системе</text>
+<text class="dg-sub" x="292.0" y="130.5" text-anchor="middle">распознан из PDF/XML</text>
+<polygon class="dg-mask" points="500,62.0 600.0,110 500,158.0 400.0,110"/>
+<polygon class="dg-node dg-node--step" points="500,62.0 600.0,110 500,158.0 400.0,110"/>
+<text class="dg-name" x="500" y="106.0" text-anchor="middle">Логист проверяет:</text>
+<text class="dg-name" x="500" y="121.0" text-anchor="middle">всё верно?</text>
+<rect class="dg-mask" x="660" y="78" width="144" height="64" rx="6"/>
+<rect class="dg-node dg-node--focal" x="660" y="78" width="144" height="64" rx="6"/>
+<text class="dg-name" x="732.0" y="107.0" text-anchor="middle">Выгрузка в 1С</text>
+<text class="dg-sub" x="732.0" y="123.0" text-anchor="middle">учёт в бухгалтерии</text>
+<rect class="dg-mask" x="852" y="78" width="124" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="852" y="78" width="124" height="64" rx="6"/>
+<text class="dg-name" x="914.0" y="107.0" text-anchor="middle">Оплата</text>
+<text class="dg-sub" x="914.0" y="123.0" text-anchor="middle">заявка на оплату</text>
+<rect class="dg-mask" x="408" y="226" width="184" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="408" y="226" width="184" height="64" rx="6"/>
+<text class="dg-name" x="500.0" y="255.0" text-anchor="middle">Оспаривание (dispute)</text>
+<text class="dg-sub" x="500.0" y="271.0" text-anchor="middle">переписка и статус в системе</text>
+<line class="dg-rule" x1="24" y1="322" x2="976" y2="322"/>
+<rect class="dg-node dg-node--focal" x="24" y="332" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="342">в 1С уходят только принятые документы</text>
+<rect class="dg-node dg-node--step" x="309" y="332" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="333" y="342">работа в системе</text>
+<rect class="dg-node dg-node--system" x="464" y="332" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="488" y="342">канал получения</text>
+</svg>
+              <!-- /diagram:dg-invoices -->
+              </div>
+              <figcaption>Путь входящего счёта и УПД: от получения до оплаты или спора.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08. Документы -->
+      <section class="section feature feature--split feature--flip" id="documents" aria-labelledby="documents-title">
+        <div class="wrap feature__grid">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">Документы</span></p>
+          <div class="feature__copy">
+            <p class="for-role">Логисту и юристу</p>
+            <h2 class="section__title" id="documents-title">Ваши бланки заполняются сами</h2>
+            <p class="feature__text">Коммерческие предложения, букинги, доверенности, служебные записки, письма о взаимозачёте — по вашим шаблонам Word и Excel. Система подставляет реквизиты, маршрут, груз и услуги из перевозки и сохраняет готовый файл рядом с ней. Договоры согласуются по маршруту: визы, замечания, сроки — и видно, у кого задержался ответ.</p>
+            <ul class="ticks">
+              <li>Свои бланки для разных организаций, клиентов и подрядчиков.</li>
+              <li>Word, Excel и PDF; формы на русском и английском.</li>
+              <li>Реестр договоров: сроки, лимиты, условия оплаты, подписанты.</li>
+              <li>Внутреннее согласование: визы, замечания, контроль сроков.</li>
+            </ul>
+          </div>
+          <figure class="shot" style="--m-w:34rem;--m-x:-6.5rem">
+            <div class="shot__frame shot__frame--static">
+              <span class="shot__canvas"><img src="assets/img/print.webp" width="1600" height="1040" loading="lazy" decoding="async" alt="Экран системы: в карточке перевозки открыт выбор печатной формы — букинг, доверенность, коммерческое предложение, служебная записка, письмо о взаимозачёте. Файл сохраняется в папку перевозки."></span>
+            </div>
+            <figcaption class="shot__caption">
+              <span>Бланк выбирается в карточке перевозки, готовый файл сохраняется в её папку.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 09. Контроль -->
+      <section class="section feature control" id="control" aria-labelledby="control-title">
+        <div class="wrap">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">Отчёты</span></p>
+          <header class="section__head">
+            <p class="for-role">Руководителю</p>
+            <h2 class="section__title" id="control-title">Цифры, за которыми видны перевозки</h2>
+            <p class="section__lead">Перевозки, объёмы и прибыль по клиентам, сотрудникам и подрядчикам — по месяцам. План против результата по счетам. Долги клиентов с разбивкой по срокам просрочки. Из месячной цифры — переход к перевозкам, из которых она сложилась. Нужные отчёты приходят на почту по расписанию.</p>
+          </header>
+
+          <div class="tabs" data-tabs>
+            <div class="tabs__list" role="tablist" aria-label="Отчёты">
+              <button class="tabs__tab" role="tab" type="button" id="rep-tab-1" aria-controls="rep-panel-1" aria-selected="true">Клиенты</button>
+              <button class="tabs__tab" role="tab" type="button" id="rep-tab-2" aria-controls="rep-panel-2" aria-selected="false" tabindex="-1">Сотрудники</button>
+              <button class="tabs__tab" role="tab" type="button" id="rep-tab-3" aria-controls="rep-panel-3" aria-selected="false" tabindex="-1">План / факт</button>
+              <button class="tabs__tab" role="tab" type="button" id="rep-tab-4" aria-controls="rep-panel-4" aria-selected="false" tabindex="-1">Долги клиентов</button>
+            </div>
+
+            <div class="tabs__panel" role="tabpanel" id="rep-panel-1" aria-labelledby="rep-tab-1">
+              <figure class="shot" style="--m-w:44rem">
+                <button class="shot__frame" type="button" data-lightbox="assets/img/rep-customers.webp" data-lightbox-w="2200" data-lightbox-h="1139" data-lightbox-alt="Экран системы: отчёт по клиентам — прибыль по счетам в долларах по месяцам для каждого клиента и итог за год.">
+                  <span class="shot__canvas"><img src="assets/img/rep-customers.webp" width="2200" height="1139" loading="lazy" decoding="async" alt="Экран системы: отчёт по клиентам — прибыль по счетам в долларах по месяцам для каждого клиента и итог за год."></span>
+                </button>
+                <figcaption class="shot__caption"><span>Прибыль по счетам по каждому клиенту — месяц за месяцем.</span><button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button></figcaption>
+              </figure>
+            </div>
+            <div class="tabs__panel" role="tabpanel" id="rep-panel-2" aria-labelledby="rep-tab-2" hidden>
+              <figure class="shot" style="--m-w:44rem">
+                <button class="shot__frame" type="button" data-lightbox="assets/img/rep-resp.webp" data-lightbox-w="2200" data-lightbox-h="1139" data-lightbox-alt="Экран системы: отчёт по ответственным — фактическая прибыль каждого сотрудника по месяцам и итог за год.">
+                  <span class="shot__canvas"><img src="assets/img/rep-resp.webp" width="2200" height="1139" loading="lazy" decoding="async" alt="Экран системы: отчёт по ответственным — фактическая прибыль каждого сотрудника по месяцам и итог за год."></span>
+                </button>
+                <figcaption class="shot__caption"><span>Прибыль по перевозкам каждого сотрудника — по месяцам.</span><button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button></figcaption>
+              </figure>
+            </div>
+            <div class="tabs__panel" role="tabpanel" id="rep-panel-3" aria-labelledby="rep-tab-3" hidden>
+              <figure class="shot" style="--m-w:44rem">
+                <button class="shot__frame" type="button" data-lightbox="assets/img/rep-planfact.webp" data-lightbox-w="2200" data-lightbox-h="1139" data-lightbox-alt="Экран системы: отчёт «план / факт» — плановая и фактическая прибыль каждого сотрудника по месяцам.">
+                  <span class="shot__canvas"><img src="assets/img/rep-planfact.webp" width="2200" height="1139" loading="lazy" decoding="async" alt="Экран системы: отчёт «план / факт» — плановая и фактическая прибыль каждого сотрудника по месяцам."></span>
+                </button>
+                <figcaption class="shot__caption"><span>План против факта по каждому сотруднику.</span><button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button></figcaption>
+              </figure>
+            </div>
+            <div class="tabs__panel" role="tabpanel" id="rep-panel-4" aria-labelledby="rep-tab-4" hidden>
+              <figure class="shot" style="--m-w:44rem">
+                <button class="shot__frame" type="button" data-lightbox="assets/img/rep-debt.webp" data-lightbox-w="2200" data-lightbox-h="1139" data-lightbox-alt="Экран системы: дебиторская задолженность клиентов — общий и просроченный долг с разбивкой по срокам: до 7 дней, от 8 до 15, от 16 до 30, от 31 до 60, от 61 до 90 и свыше 90 дней.">
+                  <span class="shot__canvas"><img src="assets/img/rep-debt.webp" width="2200" height="1139" loading="lazy" decoding="async" alt="Экран системы: дебиторская задолженность клиентов — общий и просроченный долг с разбивкой по срокам: до 7 дней, от 8 до 15, от 16 до 30, от 31 до 60, от 61 до 90 и свыше 90 дней."></span>
+                </button>
+                <figcaption class="shot__caption"><span>Кто должен и как давно.</span><button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09а. API -->
+      <section class="section api" id="api" aria-labelledby="api-title">
+        <div class="wrap">
+          <p class="runhead"><span class="runhead__group">Возможности</span><span class="runhead__item">API</span></p>
+          <div class="pair pair--wide-side">
+            <div class="pair__main">
+              <p class="for-role">ИТ-службе</p>
+              <h2 class="section__title" id="api-title">Данные доступны по API</h2>
+              <p class="section__lead">Данные «Экспедиторской» можно отдавать в другие системы: в личный кабинет клиента, на сайт, подрядчику, в аналитику, в CRM внутри компании. Доступ включается по желанию, а что именно отдавать и кому — администратор настраивает в интерфейсе.</p>
+              <ul class="ticks">
+                <li>Схема доступа описывает один раздел: какие поля отдаются, под какими именами и с каким описанием, по каким полям разрешён отбор.</li>
+                <li>Для разных потребителей — разные схемы с разным набором данных. К одному разделу можно настроить несколько схем: краткую для клиента, полную для своей аналитики.</li>
+                <li>У каждого потребителя свой ключ. Ключ перевыпускается и отключается, каждый вызов записывается в журнал.</li>
+                <li>Файлы из папки записи отдаются по маске — например, только PDF. На каждый файл API генерирует уникальную ссылку на скачивание — с криптоподписью и сроком действия.</li>
+                <li>Документация и спецификация OpenAPI генерируются автоматически — по настройкам API, сделанным в интерфейсе.</li>
+              </ul>
+              <p class="api__call"><code>GET /api/lk/Shipment?CustomerID=1024&amp;$orderby=ETA desc</code><span>Запрос к схеме с экрана: перевозки одного клиента, отсортированные по дате прибытия.</span></p>
+            </div>
+
+            <figure class="shot pair__side" style="--m-w:30rem;--m-x:0rem">
+              <button class="shot__frame" type="button" data-lightbox="assets/img/api-resource.webp" data-lightbox-w="1800" data-lightbox-h="2400" data-lightbox-alt="Экран системы: API-ресурс «Перевозки для личного кабинета клиента» — адрес /api/lk/Shipment, обязательный отбор по клиенту, публикация PDF-файлов, подключённый API-пользователь и таблица из 17 полей с именами в API, описаниями и признаками отбора.">
+                <span class="shot__canvas"><img src="assets/img/api-resource.webp" width="1800" height="2400" loading="lazy" decoding="async" alt="Экран системы: настройка API-ресурса «Перевозки для личного кабинета клиента». Адрес /api/lk/Shipment, раздел «Перевозки», обязательное поле в запросе — «Клиент», публикуются файлы по маске *.pdf, подключён API-пользователь «Личный кабинет клиента». Ниже таблица полей: номер перевозки отдаётся под именем ShipmentNumber, статус — под именем Status; для каждого поля указано, участвует ли оно в отборе и выводится ли в списке."><span class="hl" style="--x:2%;--y:26.1%;--w:30%;--h:3.6%" aria-hidden="true"></span></span>
+              </button>
+              <figcaption class="shot__caption">
+                <span>Схема для личного кабинета клиента: поля перевозки, имена в API и обязательный отбор по клиенту.</span>
+                <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+              </figcaption>
+            </figure>
+          </div>
+
+          <ul class="rules rules--two">
+            <li><b>Клиентам</b>Статусы, даты и документы их перевозок — в личном кабинете или в учётной системе клиента, без звонков и писем «где мой груз».</li>
+            <li><b>Подрядчикам и партнёрам</b>Только те данные, которые нужны им для работы: каждый получает свой ключ и свою схему.</li>
+            <li><b>Внутренним системам</b>API не обязательно открывать в интернет: он может работать только внутри сети предприятия и связывать «Экспедиторскую» с другими вашими системами. Например, CRM ведётся в Битриксе, а логистика — в «Экспедиторской».</li>
+            <li><b>Только чтение</b>API отдаёт данные из «Экспедиторской» и ничего в ней не меняет.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- 10. Стандарты: 1С, ЭДО и ЭПД -->
+    <section class="section integrations" id="integrations" aria-labelledby="integrations-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Стандарты</span><span class="runhead__item">1С, ЭДО и ЭПД</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="integrations-title">Работает с тем, что у вас уже есть</h2>
+          <p class="section__lead">1С остаётся у бухгалтерии, Диадок и Saby — у документооборота. «Экспедиторская» связывает их с перевозками.</p>
+        </header>
+
+        <div class="bento">
+          <article class="bento__cell bento__cell--1c">
+            <h3 class="bento__title">1С</h3>
+            <p>Счета клиентам, счета и акты подрядчиков уходят в 1С. УПД, поступления, списания и корректировки долга возвращаются и привязываются к перевозкам. Логисту не нужно спрашивать бухгалтерию, оплатил ли клиент.</p>
+            <div class="exchange" role="img" aria-label="Схема обмена: из «Экспедиторской» в 1С уходят счета клиентам, счета и акты подрядчиков; из 1С возвращаются УПД клиентам, поступления и списания, корректировки долга.">
+              <span class="exchange__node">Экспедиторская</span>
+              <div class="exchange__flows" aria-hidden="true">
+                <p class="exchange__flow exchange__flow--out">счета клиентам, счета и акты подрядчиков</p>
+                <p class="exchange__flow exchange__flow--in">УПД клиентам, поступления и списания, корректировки долга</p>
+              </div>
+              <span class="exchange__node">1С</span>
+            </div>
+            <p class="bento__spec">Из коробки поддерживается конфигурация «1С:Бухгалтерия 3.0». Подключение — по протоколу OData.</p>
+          </article>
+
+          <article class="bento__cell bento__cell--edo">
+            <h3 class="bento__title">Диадок и Saby</h3>
+            <p>Входящие и исходящие документы электронного документооборота (ЭДО) собираются в журналах системы. УПД, акты и счета-фактуры привязываются к своим счетам и перевозкам. Статус показывает, чего ждёт документ: вашей подписи или ответа контрагента.</p>
+          </article>
+
+          <article class="bento__cell bento__cell--epd">
+            <div class="bento__copy">
+              <h3 class="bento__title">Электронные перевозочные документы</h3>
+              <p>Поручение экспедитору, экспедиторская расписка, заказ-заявка и ЭТрН — электронные перевозочные документы (ЭПД) — готовятся из данных перевозки. Ошибки в реквизитах видны до отправки, титулы и статусы оператора возвращаются в карточку. <a class="ticks__link" href="#epd">Подробнее про ЭПД и ЭТрН</a>.</p>
+            </div>
+            <figure class="bento__proof">
+              <img src="assets/img/epd.webp" width="950" height="500" loading="lazy" decoding="async" alt="Фрагмент карточки перевозки: кнопки «Создать электронное поручение экспедитору», «Создать электронную экспедиторскую расписку», «Создать электронный заказ или заявку», «Создать ЭТрН».">
+              <figcaption>Электронный документ готовится из данных перевозки.</figcaption>
+            </figure>
+          </article>
+        </div>
+
+        <p class="integrations__note">Состав обмена настраивается под вашу учётную базу и вашего оператора. Документы выгружаются оператору черновиком, а подписываются в личном кабинете ЭДО — подробнее <a href="#faq-edo">в ответах на вопросы</a>.</p>
+
+        <div class="cta-row">
+          <p class="cta-row__text">Уточним, как подключить вашу 1С и вашего оператора ЭДО.</p>
+          <a class="btn btn--primary" href="#request">Запросить стоимость</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10а. НДС 0 % -->
+    <section class="section vat" id="vat" aria-labelledby="vat-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Стандарты</span><span class="runhead__item">НДС 0 %</span></p>
+        <div class="pair">
+          <div class="pair__main">
+            <p class="for-role">Финансовой службе и бухгалтерии</p>
+            <h2 class="section__title" id="vat-title">НДС 0 %: реестры собираются из перевозок, а не из папок</h2>
+            <p class="section__lead">Нулевую ставку НДС по международным перевозкам подтверждают электронными реестрами сведений из транспортных и товаросопроводительных документов — своим для каждого вида транспорта. В «Экспедиторской» все четыре реестра наполняются из документов перевозки и связываются с УПД клиенту. На выходе — готовый XML для загрузки в «1С:Бухгалтерию».</p>
+          </div>
+
+          <div class="pair__side">
+            <table class="regs">
+              <caption class="regs__caption">Четыре реестра по формам ФНС</caption>
+              <thead>
+                <tr><th scope="col">Код формы</th><th scope="col">Транспорт</th><th scope="col">Документ</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">КНД 1155112</th><td>Железнодорожный</td><td>Ж/д накладная</td></tr>
+                <tr><th scope="row">КНД 1155113</th><td>Автомобильный</td><td>CMR</td></tr>
+                <tr><th scope="row">КНД 1155114</th><td>Воздушный</td><td>Авианакладная (MAWB)</td></tr>
+                <tr><th scope="row">КНД 1155115</th><td>Морские и речные суда</td><td>Коносамент (MBL)</td></tr>
+              </tbody>
+            </table>
+            <ul class="ticks">
+              <li>Строка реестра появляется сама, когда транспортный документ в перевозке отмечен как подтверждающий НДС 0 %.</li>
+              <li>Налоговая база подтягивается из строк УПД с нулевой ставкой.</li>
+              <li>Система показывает УПД, которым не хватает подтверждающего документа.</li>
+              <li>Результат работы — XML-файл сведений за квартал, проверенный по схеме ФНС. Его можно загрузить напрямую в «1С:Бухгалтерию» и подать отчёт. Есть и выгрузка в Excel, в том числе с разбивкой по УПД.</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="tts">
+          <ol class="tts__chain tts__chain--even" aria-label="Путь от документа в перевозке до файла для налоговой">
+            <li><span class="tts__point">Документ в перевозке</span><span class="tts__text">с отметкой «Подтверждает НДС 0 %»</span></li>
+            <li><span class="tts__point">Строка реестра</span><span class="tts__text">создаётся и обновляется сама</span></li>
+            <li><span class="tts__point">УПД клиенту</span><span class="tts__text">налоговая база по строкам со ставкой 0 %</span></li>
+            <li><span class="tts__point">Проверка за квартал</span><span class="tts__text">организация, период, полнота реквизитов</span></li>
+            <li><span class="tts__point">XML для 1С</span><span class="tts__text">загружается напрямую в «1С:Бухгалтерию»</span></li>
+          </ol>
+          <figcaption>Готовый XML загружается напрямую в «1С:Бухгалтерию»; отчёт подаёт бухгалтерия.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 10б. ЭПД и ЭТрН -->
+    <section class="section epd" id="epd" aria-labelledby="epd-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Стандарты</span><span class="runhead__item">ЭПД и ЭТрН</span></p>
+        <div class="pair">
+          <div class="pair__main">
+            <h2 class="section__title" id="epd-title">ЭПД и ЭТрН: электронные перевозочные документы — из данных перевозки</h2>
+            <p class="section__lead">Поручение экспедитору, экспедиторская расписка, заказ-заявка и электронная транспортная накладная готовятся в системе в форматах, утверждённых ФНС. Система проверяет данные, формирует XML и выгружает его оператору ЭДО черновиком — подписать остаётся в личном кабинете оператора.</p>
+          </div>
+
+          <div class="pair__side">
+            <table class="regs">
+              <caption class="regs__caption">Четыре документа в форматах ФНС</caption>
+              <thead>
+                <tr><th scope="col">Документ</th><th scope="col">Формат утверждён</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Поручение экспедитору</th><td><a href="https://www.nalog.gov.ru/rn77/about_fts/docs/16627946/" target="_blank" rel="noopener">Приказ № ЕД-1-26/277@</a></td></tr>
+                <tr><th scope="row">Экспедиторская расписка</th><td><a href="https://www.nalog.gov.ru/rn77/about_fts/docs/16627946/" target="_blank" rel="noopener">Приказ № ЕД-1-26/277@</a></td></tr>
+                <tr><th scope="row">Заказ или заявка на перевозку</th><td><a href="https://www.nalog.gov.ru/rn77/about_fts/docs/13196711/" target="_blank" rel="noopener">Приказ № ЕД-7-26/108@</a></td></tr>
+                <tr><th scope="row">Транспортная накладная (ЭТрН)</th><td><a href="https://www.nalog.gov.ru/rn77/about_fts/docs/11766120/" target="_blank" rel="noopener">Приказ № ЕД-7-26/1065@</a></td></tr>
+              </tbody>
+            </table>
+            <p class="epd__refs">Приказы — на сайте ФНС. Как документы оформляются у оператора, описано в справке Контура: <a href="https://support.kontur.ru/logistika/ekspeditorskie_dokumenty" target="_blank" rel="noopener">экспедиторские документы</a> и <a href="https://support.kontur.ru/logistika/85537-sozdaniye_titul1_zakaz_zayavki" target="_blank" rel="noopener">заказ-заявка</a>.</p>
+            <ul class="ticks">
+              <li>Из принятой заявки одной кнопкой создаётся ЭТрН: стороны, груз и транспорт уже заполнены.</li>
+              <li>Документ контрагента можно загрузить из его XML — карточка заполнится сама.</li>
+              <li>Водители, автомобили и прицепы из ответа перевозчика попадают в справочники.</li>
+              <li>Готовый XML можно скачать или отправить клиенту письмом прямо из карточки.</li>
+              <li>По ЭТрН в карточку возвращаются титулы погрузки и разгрузки и статус ГИС ЭПД; аннулирование тоже отслеживается.</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="tts">
+          <ol class="tts__chain tts__chain--even" aria-label="Путь электронного перевозочного документа">
+            <li><span class="tts__point">Карточка документа</span><span class="tts__text">создаётся из перевозки или из XML контрагента</span></li>
+            <li><span class="tts__point">Проверка и XML</span><span class="tts__text">файл в формате ФНС формирует система</span></li>
+            <li><span class="tts__point">Черновик у оператора</span><span class="tts__text">Контур.Диадок или Saby</span></li>
+            <li><span class="tts__point">Подпись</span><span class="tts__text">в личном кабинете оператора ЭДО</span></li>
+            <li><span class="tts__point">Статус в карточке</span><span class="tts__text">подписи, ответные титулы и файлы возвращаются сами</span></li>
+          </ol>
+          <figcaption>Состояние документов система забирает у операторов сама — фоновой синхронизацией каждые десять минут в рабочее время.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 10в. Стандарт -->
+    <section class="section gost" id="gost" aria-labelledby="gost-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Стандарты</span><span class="runhead__item">ГОСТ Р 72552–2026</span></p>
+        <div class="gost__grid">
+          <header class="gost__head">
+            <h2 class="section__title" id="gost-title">Перевозка описана так, как рекомендует ГОСТ Р 72552–2026</h2>
+            <p class="section__lead">С 30 апреля 2026 года действует национальный стандарт о транспортно-технологической схеме мультимодальной перевозки. Он описывает перевозку как маршрут из участков разными видами транспорта и события на нём, по которым план сверяют с фактом. В «Экспедиторской» эти рекомендации учтены.</p>
+            <p class="gost__source"><a class="link-more" href="https://protect.gost.ru/gost/details/77280765-e78d-4973-8b32-787bbe078bda" target="_blank" rel="noopener">ГОСТ Р 72552–2026 на сайте Росстандарта<span class="visually-hidden"> (откроется в новой вкладке)</span></a></p>
+          </header>
+
+          <div class="match">
+            <p class="match__cols" aria-hidden="true"><span>Стандарт рекомендует</span><span>В «Экспедиторской»</span></p>
+            <dl class="match__list">
+              <div>
+                <dt>Маршрут складывается из участков с разными видами транспорта <span class="match__ref">п. 4.2</span></dt>
+                <dd><span class="visually-hidden">В системе: </span>Море, ж/д, авто и другие услуги ведутся в одной перевозке. У каждого участка свой подрядчик, документы и статус.</dd>
+              </div>
+              <div>
+                <dt>Точки маршрута — порты, терминалы, пограничные переходы, пункты отправления и назначения <span class="match__ref">раздел 5</span></dt>
+                <dd><span class="visually-hidden">В системе: </span>Пункты маршрута выбираются из справочника локаций с международными кодами UN/LOCODE.</dd>
+              </div>
+              <div>
+                <dt>Фактические данные сравниваются с плановыми <span class="match__ref">п. 4.10</span></dt>
+                <dd><span class="visually-hidden">В системе: </span>Плановые и фактические даты ведутся по каждому пункту маршрута.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <figure class="tts">
+          <ol class="tts__chain" aria-label="Типовая схема перевозки: пункт принятия груза, порт отправления, порт назначения, терминал перевалки, пункт назначения">
+            <li><span class="tts__point">Пункт принятия груза</span><span class="tts__leg">авто, ж/д</span></li>
+            <li><span class="tts__point">Порт отправления</span><span class="tts__leg">море</span></li>
+            <li><span class="tts__point">Порт назначения</span><span class="tts__leg">ж/д</span></li>
+            <li><span class="tts__point">Терминал перевалки</span><span class="tts__leg">авто</span></li>
+            <li><span class="tts__point">Пункт назначения</span></li>
+          </ol>
+          <figcaption>Типовая схема из стандарта в упрощённом виде: от пункта принятия груза до пункта назначения. Национальный стандарт применяется добровольно; речь о том, как в системе устроены данные перевозки, а не о сертификации программы.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 11. Коммуникация -->
+    <section class="section team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Коммуникация</span><span class="runhead__item">Работа команды</span></p>
+        <div class="team__grid">
+          <header class="team__head">
+            <h2 class="section__title" id="team-title">Договорённости не теряются в почте и мессенджерах</h2>
+            <p class="section__lead">Письма привязаны к перевозкам: о чём договорились с клиентом, видит каждый, у кого есть доступ. Задачи ставятся прямо из карточки — с исполнителем, сроком и обсуждением. Сотрудник ушёл в отпуск — замещающий открывает перевозку и продолжает с того же места.</p>
+          </header>
+          <dl class="team__list">
+            <div><dt><a href="#comments">Комментарии</a></dt><dd>Внутренние обсуждения в ленте записи; отвечать можно из почты.</dd></div>
+            <div><dt><a href="#mail">Почта в карточке</a></dt><dd>Цепочки писем, вложения, контроль писем без ответа.</dd></div>
+            <div><dt>Типовые письма</dt><dd>Шаблоны, в которые данные, адресаты и файлы подставляются сами.</dd></div>
+            <div><dt><a href="#tasks">Задачи</a></dt><dd>Подзадачи, делегирование и календарь.</dd></div>
+            <div><dt>Уведомления</dt><dd>Об изменениях — по Email, в Telegram и Max.</dd></div>
+            <div><dt>Отпуска и замещения</dt><dd>График по сотрудникам и клиентам.</dd></div>
+            <div><dt><a href="#ai">ИИ-помощник</a></dt><dd>Черновики ответов на письма, вопросы по данным, аналитика.</dd></div>
+          </dl>
+        </div>
+        <figure class="strip">
+          <img src="assets/img/team-toolbar.webp" width="1720" height="172" loading="lazy" decoding="async" alt="Фрагмент карточки перевозки: меню с пунктами «Комментарии», «Задачи», «Файлы», «Отправить Email», «Напоминания».">
+          <figcaption>Комментарии, задачи, письма и напоминания — в меню каждой перевозки.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 11а. Внутренняя коммуникация -->
+    <section class="section comments" id="comments" aria-labelledby="comments-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Коммуникация</span><span class="runhead__item">Комментарии</span></p>
+        <div class="pair pair--wide-side">
+          <div class="pair__main">
+            <h2 class="section__title" id="comments-title">Внутренние обсуждения — в комментариях к перевозке, а не в чатах</h2>
+            <p class="section__lead">Вся внутренняя переписка ведётся в комментариях: у перевозки, счёта и договора своя лента. Вопрос, ответ и файл остаются рядом с записью. Отвечать можно прямо из почтовой программы — ответ всё равно попадёт в систему.</p>
+            <ul class="ticks">
+              <li>«Запросить ответ»: комментарий с ответственным и сроком работает как короткая задача.</li>
+              <li>На обсуждение нужной записи можно подписаться, а комментарий «для заметки» отправить без уведомлений.</li>
+              <li>Шаблоны комментариев, реакции и ответы на конкретный комментарий.</li>
+            </ul>
+          </div>
+
+          <figure class="shot pair__side" style="--m-w:36rem;--m-x:0rem">
+            <button class="shot__frame" type="button" data-lightbox="assets/img/comments.webp" data-lightbox-w="1904" data-lightbox-h="1156" data-lightbox-alt="Экран системы: окно комментариев к перевозке 105551-S-1 — новый комментарий, список сотрудников, которые получат уведомление, шаблон и кнопки отправки.">
+              <span class="shot__canvas"><img src="assets/img/comments.webp" width="1904" height="1156" loading="lazy" decoding="async" alt="Экран системы: новый комментарий к перевозке 105551-S-1. Над полем ввода строка «Уведомления на почту также получат: Игорь Харитонов, Мария Ковалёва, Роман Медведев, Ульяна Яковлева»; внизу кнопки «Отправить без уведомлений», «Отправить», «Отправить и закрыть»."><span class="hl" style="--x:1.6%;--y:24.3%;--w:63.5%;--h:3.9%" aria-hidden="true"></span></span>
+            </button>
+            <figcaption class="shot__caption">
+              <span>Перед отправкой видно, кто получит уведомление.</span>
+              <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+            </figcaption>
+          </figure>
+        </div>
+
+        <figure class="tts">
+          <ol class="tts__chain tts__chain--even tts__chain--four" aria-label="Как ответ из почты становится комментарием">
+            <li><span class="tts__point">Комментарий в карточке</span><span class="tts__text">Система уведомляет ответственных по записи, подписчиков и того, кому отвечают.</span></li>
+            <li><span class="tts__point">Письмо в почте</span><span class="tts__text">Текст комментария, ссылка на запись и вложения приходят на Email.</span></li>
+            <li><span class="tts__point">«Ответить» в почтовой программе</span><span class="tts__text">Ответ уходит автору и на служебный ящик, например comments@your-company.ru.</span></li>
+            <li><span class="tts__point">Комментарий в системе</span><span class="tts__text">Система забирает письмо из служебного ящика, убирает цитату и подпись и добавляет ответ в ленту той же записи вместе с вложениями.</span></li>
+          </ol>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 11б. Архив внешней переписки -->
+    <section class="section mail" id="mail" aria-labelledby="mail-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Коммуникация</span><span class="runhead__item">Переписка с клиентами</span></p>
+        <div class="pair">
+          <div class="pair__main">
+            <h2 class="section__title" id="mail-title">Переписка с клиентами и подрядчиками сама находит свою перевозку</h2>
+            <p class="section__lead">Система подключается напрямую к почтовым ящикам сотрудников и каждые пять минут забирает новые входящие и отправленные письма. Ставить робота в копию не нужно: сотрудники пишут из привычной почтовой программы, а письмо появляется в карточке запроса, котировки, перевозки, счёта или УПД.</p>
+            <ul class="ticks">
+              <li>Письма одной переписки собираются в цепочку и видны на вкладке «Email переписка» в карточке записи.</li>
+              <li>Вложения сохраняются в папку перевозки одной кнопкой.</li>
+              <li>Письма, ждущие ответа, остаются на контроле: видно, сколько часов клиент ждёт.</li>
+              <li>Сотрудник видит переписку, в которой участвует; остальным доступ открывается отдельным правом.</li>
+              <li>Письма в системе только читаются: отметки в почтовом ящике не меняются, отвечаете вы из своей почты.</li>
+            </ul>
+          </div>
+
+          <div class="pair__side mailmatch">
+            <figure class="mailmatch__sample">
+              <p class="mailmatch__line"><span class="mailmatch__label">Тема</span><span>RE: Документы по перевозке <mark>105551-S-1</mark>, AWB <mark>555-10261934</mark></span></p>
+              <p class="mailmatch__result"><span class="mailmatch__label">Привязано</span><span>Перевозка 105551-S-1</span></p>
+              <figcaption>Пример: номера в теме письма совпали с перевозкой.</figcaption>
+            </figure>
+
+            <h3 class="mailmatch__title">По чему система узнаёт запись</h3>
+            <ul class="mailmatch__keys">
+              <li>Номер запроса, котировки или перевозки</li>
+              <li>Номер счёта, акта или УПД</li>
+              <li>Номер контейнера</li>
+              <li>Номер транспортного документа: AWB, B/L и других</li>
+              <li>Ответ на письмо, отправленное из карточки</li>
+              <li>Письмо из уже привязанной цепочки</li>
+            </ul>
+            <p class="mailmatch__note">Номера ищутся в теме, тексте письма и именах вложений. Если подходят несколько записей, система предлагает варианты, а сотрудник подтверждает нужный. Правила поиска настраиваются под нумерацию вашей компании.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11в. Задачи -->
+    <section class="section feature feature--split tasks" id="tasks" aria-labelledby="tasks-title">
+      <div class="wrap feature__grid">
+        <p class="runhead"><span class="runhead__group">Коммуникация</span><span class="runhead__item">Задачи</span></p>
+        <div class="feature__copy">
+          <h2 class="section__title" id="tasks-title">Задача ставится там, где возникла: в перевозке, счёте или договоре</h2>
+          <p class="feature__text">Задачи встроены в разделы системы. Откройте карточку, нажмите «Задачи» — и запись уже привязана: остаётся указать исполнителя, срок и наблюдателей. Обсуждение идёт в комментариях к задаче, а не в личной переписке. Исполнитель видит свои задачи и просрочки, руководитель — что по перевозке ещё не сделано и кто за это отвечает.</p>
+          <ul class="ticks">
+            <li>Одна задача — несколько связанных записей: у каждой свой исполнитель и статус, в списке — счётчик «завершено/всего».</li>
+            <li>Подзадачи, делегирование и календарь задач.</li>
+            <li>Шаблоны по типам задач: статус, участники и текст подставляются сами.</li>
+            <li>Уведомления о новых задачах и смене статуса — по Email, в Telegram и Max.</li>
+            <li>Исполнителем можно назначить ИИ-агента: <a class="ticks__link" href="#ai">он ответит комментарием к задаче</a>.</li>
+          </ul>
+        </div>
+        <figure class="shot" style="--m-w:38rem;--m-x:-16rem">
+          <button class="shot__frame" type="button" data-lightbox="assets/img/task.webp" data-lightbox-w="1756" data-lightbox-h="1928" data-lightbox-alt="Экран системы: новая задача «Запросить у клиента оригиналы по перевозке 105551-S-1» — описание, срок, постановщик, исполнитель, наблюдатель и связанная запись раздела «Перевозки».">
+            <span class="shot__canvas"><img src="assets/img/task.webp" width="1756" height="1928" loading="lazy" decoding="async" alt="Экран системы: новая задача из карточки перевозки. Слева тема и описание, справа статус, приоритет, срок исполнения 09.10.2026, постановщик, исполнитель Мария Ковалёва и наблюдатель Игорь Харитонов; внизу связанная запись — перевозка."><span class="hl" style="--x:5.8%;--y:91.9%;--w:24.3%;--h:3.4%" aria-hidden="true"></span></span>
+          </button>
+          <figcaption class="shot__caption">
+            <span>Новая задача из карточки перевозки: перевозка уже в связанных записях.</span>
+            <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+          </figcaption>
+        </figure>
+
+        <div class="feature__extra">
+          <h3 class="subhead">От поручения до результата — управляемый процесс</h3>
+          <p class="feature__text">Роли в задаче закрывают управление по поручениям: постановщик отвечает за результат, исполнители — за работу, наблюдатели в курсе. Статусы и допустимые переходы между ними настраиваются под ваш регламент. Повторяющаяся работа — запрос документов, проверка счёта, закрытие перевозки — оформляется шаблоном и каждый раз идёт по одному и тому же пути.</p>
+          <figure class="diagram diagram--wide">
+            <div class="diagram__scroll">
+<!-- diagram:dg-tasks -->
+<svg class="dg" viewBox="0 0 1000 408" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-tasks-title dg-tasks-desc">
+<title id="dg-tasks-title">Путь задачи: постановщик, система, исполнитель</title>
+<desc id="dg-tasks-desc">Постановщик ставит задачу из карточки, система уведомляет участников, исполнитель берёт её в работу, уточняет детали в комментариях и закрывает; система ставит дату завершения и сообщает постановщику.</desc>
+<defs>
+<marker id="dg-tasks-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<line class="dg-rule" x1="24" y1="40" x2="976" y2="40"/>
+<text class="dg-lane" x="24" y="94">Постановщик</text>
+<line class="dg-rule" x1="24" y1="140" x2="976" y2="140"/>
+<text class="dg-lane" x="24" y="194">Система</text>
+<line class="dg-rule" x1="24" y1="240" x2="976" y2="240"/>
+<text class="dg-lane" x="24" y="294">Исполнитель</text>
+<line class="dg-rule" x1="24" y1="340" x2="976" y2="340"/>
+<path class="dg-arrow" d="M252,90 H332 Q340,90 340,98 V157" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M396,190 H476 Q484,190 484,198 V257" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M540,290 H571" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M628,258 V123" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M684,90 H764 Q772,90 772,98 V257" marker-end="url(#dg-tasks-arrow)"/>
+<path class="dg-arrow" d="M828,290 H908 Q916,290 916,282 V223" marker-end="url(#dg-tasks-arrow)"/>
+<rect class="dg-mask" x="636" y="183" width="49" height="15" rx="2"/><text class="dg-label" x="642" y="194" text-anchor="start">вопрос</text>
+<rect class="dg-mask" x="780" y="183" width="43" height="15" rx="2"/><text class="dg-label" x="786" y="194" text-anchor="start">ответ</text>
+<rect class="dg-mask" x="140" y="58" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--focal" x="140" y="58" width="112" height="64" rx="6"/>
+<text class="dg-name" x="196.0" y="79.5" text-anchor="middle">Ставит задачу</text>
+<text class="dg-name" x="196.0" y="94.5" text-anchor="middle">из карточки</text>
+<text class="dg-sub" x="196.0" y="110.5" text-anchor="middle">статус: новая</text>
+<rect class="dg-mask" x="284" y="158" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--system" x="284" y="158" width="112" height="64" rx="6"/>
+<text class="dg-name" x="340.0" y="179.5" text-anchor="middle">Уведомляет</text>
+<text class="dg-name" x="340.0" y="194.5" text-anchor="middle">участников</text>
+<text class="dg-sub" x="340.0" y="210.5" text-anchor="middle">Email, Telegram</text>
+<rect class="dg-mask" x="428" y="258" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="428" y="258" width="112" height="64" rx="6"/>
+<text class="dg-name" x="484.0" y="287.0" text-anchor="middle">Берёт в работу</text>
+<text class="dg-sub" x="484.0" y="303.0" text-anchor="middle">статус: в работе</text>
+<rect class="dg-mask" x="572" y="258" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="572" y="258" width="112" height="64" rx="6"/>
+<text class="dg-name" x="628.0" y="279.5" text-anchor="middle">Задаёт вопрос</text>
+<text class="dg-name" x="628.0" y="294.5" text-anchor="middle">в комментариях</text>
+<text class="dg-sub" x="628.0" y="310.5" text-anchor="middle">ждёт ответа</text>
+<rect class="dg-mask" x="572" y="58" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="572" y="58" width="112" height="64" rx="6"/>
+<text class="dg-name" x="628.0" y="86.0" text-anchor="middle">Отвечает</text>
+<text class="dg-name" x="628.0" y="101.0" text-anchor="middle">в комментариях</text>
+<rect class="dg-mask" x="716" y="258" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--step" x="716" y="258" width="112" height="64" rx="6"/>
+<text class="dg-name" x="772.0" y="279.5" text-anchor="middle">Закрывает</text>
+<text class="dg-name" x="772.0" y="294.5" text-anchor="middle">задачу</text>
+<text class="dg-sub" x="772.0" y="310.5" text-anchor="middle">статус: выполнена</text>
+<rect class="dg-mask" x="860" y="158" width="112" height="64" rx="6"/>
+<rect class="dg-node dg-node--system" x="860" y="158" width="112" height="64" rx="6"/>
+<text class="dg-name" x="916.0" y="179.5" text-anchor="middle">Ставит дату</text>
+<text class="dg-name" x="916.0" y="194.5" text-anchor="middle">завершения</text>
+<text class="dg-sub" x="916.0" y="210.5" text-anchor="middle">письмо автору</text>
+<line class="dg-rule" x1="24" y1="364" x2="976" y2="364"/>
+<rect class="dg-node dg-node--focal" x="24" y="374" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="384">задача создаётся из карточки записи</text>
+<rect class="dg-node dg-node--step" x="297" y="374" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="321" y="384">действие сотрудника</text>
+<rect class="dg-node dg-node--system" x="471" y="374" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="495" y="384">действие системы</text>
+</svg>
+            <!-- /diagram:dg-tasks -->
+            </div>
+            <figcaption>Путь задачи: постановщик, система и исполнитель.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11г. Настраиваемое рабочее место -->
+    <section class="section workspace" id="workspace" aria-labelledby="workspace-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Коммуникация</span><span class="runhead__item">Рабочее место</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="workspace-title">Каждый настраивает рабочее место под себя и делится настройками с отделом</h2>
+          <p class="section__lead">Колонки, фильтры, счётчики, главный экран и меню настраиваются без программиста. Сотрудник оставляет перед собой только то, что нужно ему в работе, а руководитель раздаёт готовые настройки всему отделу.</p>
+        </header>
+
+        <div class="carousel" data-carousel>
+          <div class="carousel__bar">
+            <p class="carousel__count"><span data-carousel-current>1</span> / 7</p>
+            <div class="carousel__nav">
+              <button class="carousel__btn" type="button" data-carousel-prev aria-label="Предыдущий экран"><span class="carousel__chev carousel__chev--prev" aria-hidden="true"></span></button>
+              <button class="carousel__btn" type="button" data-carousel-next aria-label="Следующий экран"><span class="carousel__chev" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <ol class="carousel__track" tabindex="0" aria-label="Экраны настройки рабочего места">
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-columns.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: настройка колонок списка перевозок — отображаемые и скрытые колонки и сохранённые наборы «По умолчанию», «НДС 0%: Авто», «НДС 0%: Море», «НДС 0%: Ж/Д», «НДС 0%: Авиа».">
+                  <img src="assets/img/ui-columns.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: настройка колонок списка перевозок — отображаемые и скрытые колонки и сохранённые наборы «По умолчанию», «НДС 0%: Авто», «НДС 0%: Море», «НДС 0%: Ж/Д», «НДС 0%: Авиа».">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">Колонки под задачу</h3>
+                  <p>Каждый сотрудник оставляет в таблице только те колонки, которые нужны ему в работе, и сохраняет наборы под разные сценарии.</p>
+                  <ul class="carousel__cases" aria-label="Примеры из практики"><li>Слежение для клиента А</li><li>Слежение для клиента Б</li><li>Дебиторка</li><li>НДС 0 %</li><li>Вывоз из порта</li></ul>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-saved.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: раздел «Сохранённые фильтры» — список фильтров сотрудников с отметками: показывать бейдж, показывать на «Обзоре», включить Email-рассылку, режим сводной таблицы.">
+                  <img src="assets/img/ui-saved.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: раздел «Сохранённые фильтры» — список фильтров сотрудников с отметками: показывать бейдж, показывать на «Обзоре», включить Email-рассылку, режим сводной таблицы.">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">Сохранённые фильтры</h3>
+                  <p>Набор условий сохраняется под именем и открывается одним щелчком. Ненужные фильтры скрываются с экрана, чтобы не занимать место.</p>
+                  <ul class="carousel__cases" aria-label="Примеры из практики"><li>Нет счёта от подрядчика за ж/д</li><li>Внести дату прибытия</li><li>Заказы, готовые к закрытию</li><li>Подписать в ЭДО</li></ul>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-pivot.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: настройки сводной таблицы — поле группировки «Клиент», значения: количество уникальных номеров перевозок и сумма мест.">
+                  <img src="assets/img/ui-pivot.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: настройки сводной таблицы — поле группировки «Клиент», значения: количество уникальных номеров перевозок и сумма мест.">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">Сводная таблица из любого списка</h3>
+                  <p>Группировка и итоги считаются с учётом выбранных фильтров и периода — без выгрузки в Excel.</p>
+                  <ul class="carousel__cases" aria-label="Примеры из практики"><li>Долг подрядчикам по организациям и валютам</li><li>Грузопоток по клиентам и направлениям</li><li>Открытые заказы по ответственным</li><li>Счета клиентам за квартал: сумма и количество</li></ul>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-badges.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: настройка бейджей и уведомлений — по каждому разделу выбирается, показывать счётчик в меню слева или только в списке раздела.">
+                  <img src="assets/img/ui-badges.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: настройка бейджей и уведомлений — по каждому разделу выбирается, показывать счётчик в меню слева или только в списке раздела.">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">Счётчики всегда перед глазами</h3>
+                  <p>Бейдж показывает, сколько записей попало под фильтр, — над списком или в меню слева. Каждый сам решает, какие счётчики держать на виду.</p>
+                  <ul class="carousel__cases" aria-label="Примеры из практики"><li>Новые задачи</li><li>Внести дату отправления</li><li>Нет счетов авиа</li><li>Ожидаем корректировку счетов</li></ul>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-home.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: «Обзор» с вкладками «Новости», «Мои задачи», «Задолженность клиентов», «Мои перевозки», «Мои счета клиентам»; открыта таблица задолженности клиентов.">
+                  <img src="assets/img/ui-home.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: «Обзор» с вкладками «Новости», «Мои задачи», «Задолженность клиентов», «Мои перевозки», «Мои счета клиентам»; открыта таблица задолженности клиентов.">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">«Обзор» как рабочий стол</h3>
+                  <p>Главный экран собирается из своих блоков: задачи, перевозки, долги клиентов, сохранённые фильтры. Получается личная панель для ежедневной работы.</p>
+                  <ul class="carousel__cases" aria-label="Примеры из практики"><li>Текущий грузопоток</li><li>Отклонение прибыли от котировки</li><li>Транзитное время: отклонение от плана</li></ul>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-tags.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: теги перевозки 105551-S-1 — «Груз прибыл», «Счета от подрядчика не подгружены», «ТО списываем с Демо».">
+                  <img src="assets/img/ui-tags.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: теги перевозки 105551-S-1 — «Груз прибыл», «Счета от подрядчика не подгружены», «ТО списываем с Демо».">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">Теги на записях</h3>
+                  <p>Записи помечаются тегами статуса или важности. Теги бывают личные, для группы — бухгалтерии или логистов — и общие на всю компанию; по тегам работают фильтры.</p>
+                  <ul class="carousel__cases" aria-label="Примеры из практики"><li>Все документы вложены в папку</li><li>Счёт за фрахт запрошен</li><li>Оригиналы отправлены</li><li>Заказ готов к закрытию</li></ul>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <button class="shot__frame" type="button" data-lightbox="assets/img/ui-menu.webp" data-lightbox-w="1600" data-lightbox-h="1200" data-lightbox-alt="Экран системы: настройка меню — колонки «Избранные», «Отображаемые пункты меню» и «Скрытые пункты меню»; в избранном «Запросы клиента», «Котировки», «Перевозки».">
+                  <img src="assets/img/ui-menu.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Экран системы: настройка меню — колонки «Избранные», «Отображаемые пункты меню» и «Скрытые пункты меню»; в избранном «Запросы клиента», «Котировки», «Перевозки».">
+                </button>
+                <figcaption class="carousel__caption">
+                  <h3 class="carousel__title">Меню под себя</h3>
+                  <p>Нужные пункты выносятся в «Избранное» наверх, ненужные скрываются. Меню показывает только то, с чем сотрудник работает.</p>
+                </figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+
+        <ul class="rules rules--two">
+          <li><b>Настройками можно делиться</b>Наборами колонок, фильтрами, бейджами и блоками «Обзора» можно поделиться с коллегой или целой группой. Руководитель отдела один раз настраивает типовые потоки информации — и они появляются у всех его сотрудников.</li>
+          <li><b>Рассылка по расписанию</b>Настроенную таблицу с фильтром система сама отправляет по Email в заданные дни и время: ежедневное слежение — клиенту, еженедельный отчёт — руководителю, запрос недостающих счетов — подрядчику.</li>
+        </ul>
+        <p class="carousel__note">Названия наборов и фильтров в примерах взяты из практики работающих компаний, имена клиентов заменены.</p>
+      </div>
+    </section>
+
+    <!-- 12а. Права доступа -->
+    <section class="section access" id="access" aria-labelledby="access-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Права и аудит</span><span class="runhead__item">Права доступа</span></p>
+        <div class="access__grid">
+          <div class="access__copy">
+            <h2 class="section__title" id="access-title">Каждый видит своё: доступ настраивается до отдельного разрешения</h2>
+            <p class="section__lead">Группа задаёт базовые права отдела, сотруднику их можно расширить или сузить. У каждого раздела свой уровень доступа, а внутри раздела — отдельные разрешения: видеть финансы перевозки, показывать прибыль в списке, работать только со своими записями.</p>
+
+            <dl class="own-list">
+              <div><dt>Уровень доступа</dt><dd>«Нет доступа», «Только чтение», «Запись и чтение», «Удаление, запись и чтение» — для каждого раздела отдельно.</dd></div>
+              <div><dt>Разрешения внутри раздела</dt><dd>Финансы перевозки, прибыль в списке, правка счетов и актов после закрытия — отдельными переключателями.</dd></div>
+              <div><dt>Свои или все</dt><dd>Только записи, где сотрудник указан ответственным, или все записи раздела. Организации и офисы — списком.</dd></div>
+              <div><dt>Отчёты и задачи</dt><dd>Каждый отчёт и каждая категория задач открываются отдельно.</dd></div>
+            </dl>
+          </div>
+
+          <figure class="shot access__flags" style="--m-w:30rem;--m-x:-5.5rem">
+            <button class="shot__frame" type="button" data-lightbox="assets/img/access-flags.webp" data-lightbox-w="1290" data-lightbox-h="1140" data-lightbox-alt="Экран системы: вкладка «Доступ к модулям» в карточке сотрудника — доступ к организациям и офисам, уровень доступа к разделу «Перевозки» и шесть отдельных разрешений.">
+              <span class="shot__canvas"><img src="assets/img/access-flags.webp" width="1290" height="1140" loading="lazy" decoding="async" alt="Экран системы: права сотрудника в разделе «Перевозки». Уровень «Запись и чтение» как у группы; ниже разрешения: ограничение по вкладке «Ответственный», ручное изменение номера, показ прибыли в таблице перевозок, доступ к финансовой информации."><span class="hl" style="--x:18.6%;--y:92.4%;--w:80.6%;--h:5%" aria-hidden="true"></span></span>
+            </button>
+            <figcaption class="shot__caption">
+              <span>Карточка сотрудника: разрешения раздела «Перевозки».</span>
+              <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="pair access__logic">
+          <figure class="diagram pair__main">
+            <div class="diagram__scroll">
+<!-- diagram:dg-access -->
+<svg class="dg" viewBox="0 0 616 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-access-title dg-access-desc">
+<title id="dg-access-title">Как система решает, откроется ли перевозка сотруднику</title>
+<desc id="dg-access-desc">Три проверки подряд: уровень доступа к разделу, организация и офис записи, участие сотрудника как ответственного или право видеть все записи. Если все пройдены, карточка открывается; финансовые поля требуют отдельного разрешения.</desc>
+<defs>
+<marker id="dg-access-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<path class="dg-arrow" d="M220,72 V99" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M220,180 V219" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M220,300 V339" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M220,420 V459" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M340,140 H492 Q500,140 500,148 V227" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M340,260 H411" marker-end="url(#dg-access-arrow)"/>
+<path class="dg-arrow" d="M340,380 H492 Q500,380 500,372 V293" marker-end="url(#dg-access-arrow)"/>
+<rect class="dg-mask" x="354" y="119" width="31" height="15" rx="2"/><text class="dg-label" x="360" y="130" text-anchor="start">нет</text>
+<rect class="dg-mask" x="354" y="239" width="31" height="15" rx="2"/><text class="dg-label" x="360" y="250" text-anchor="start">нет</text>
+<rect class="dg-mask" x="354" y="359" width="31" height="15" rx="2"/><text class="dg-label" x="360" y="370" text-anchor="start">нет</text>
+<rect class="dg-mask" x="226" y="193" width="24" height="15" rx="2"/><text class="dg-label" x="232" y="204" text-anchor="start">да</text>
+<rect class="dg-mask" x="226" y="313" width="24" height="15" rx="2"/><text class="dg-label" x="232" y="324" text-anchor="start">да</text>
+<rect class="dg-mask" x="226" y="433" width="24" height="15" rx="2"/><text class="dg-label" x="232" y="444" text-anchor="start">да</text>
+<rect class="dg-mask" x="140" y="24" width="160" height="48" rx="24"/>
+<rect class="dg-node dg-node--step" x="140" y="24" width="160" height="48" rx="24"/>
+<text class="dg-name" x="220.0" y="44.0" text-anchor="middle">Сотрудник открывает</text>
+<text class="dg-name" x="220.0" y="59.0" text-anchor="middle">перевозку</text>
+<polygon class="dg-mask" points="220,100.0 340.0,140 220,180.0 100.0,140"/>
+<polygon class="dg-node dg-node--step" points="220,100.0 340.0,140 220,180.0 100.0,140"/>
+<text class="dg-name" x="220" y="136.0" text-anchor="middle">Есть доступ</text>
+<text class="dg-name" x="220" y="151.0" text-anchor="middle">к разделу?</text>
+<polygon class="dg-mask" points="220,220.0 340.0,260 220,300.0 100.0,260"/>
+<polygon class="dg-node dg-node--step" points="220,220.0 340.0,260 220,300.0 100.0,260"/>
+<text class="dg-name" x="220" y="256.0" text-anchor="middle">Его организация</text>
+<text class="dg-name" x="220" y="271.0" text-anchor="middle">и офис?</text>
+<polygon class="dg-mask" points="220,340.0 340.0,380 220,420.0 100.0,380"/>
+<polygon class="dg-node dg-node--step" points="220,340.0 340.0,380 220,420.0 100.0,380"/>
+<text class="dg-name" x="220" y="376.0" text-anchor="middle">Он ответственный</text>
+<text class="dg-name" x="220" y="391.0" text-anchor="middle">или открыты все?</text>
+<rect class="dg-mask" x="140" y="460" width="160" height="56" rx="24"/>
+<rect class="dg-node dg-node--focal" x="140" y="460" width="160" height="56" rx="24"/>
+<text class="dg-name" x="220.0" y="485.0" text-anchor="middle">Карточка открыта</text>
+<text class="dg-sub" x="220.0" y="501.0" text-anchor="middle">финансы — отдельно</text>
+<rect class="dg-mask" x="412" y="228" width="176" height="64" rx="24"/>
+<rect class="dg-node dg-node--system" x="412" y="228" width="176" height="64" rx="24"/>
+<text class="dg-name" x="500.0" y="257.0" text-anchor="middle">Запись не видна</text>
+<text class="dg-sub" x="500.0" y="273.0" text-anchor="middle">ни в списке, ни по ссылке</text>
+<text class="dg-sub" x="24" y="548">Уровень раздела и разрешения берутся у сотрудника,</text>
+<text class="dg-sub" x="24" y="562">а если не заданы — у его группы.</text>
+<line class="dg-rule" x1="24" y1="582" x2="592" y2="582"/>
+<rect class="dg-node dg-node--focal" x="24" y="592" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="602">доступ есть</text>
+<rect class="dg-node dg-node--system" x="148" y="592" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="172" y="602">доступа нет</text>
+<rect class="dg-node dg-node--step" x="272" y="592" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="296" y="602">проверка</text>
+</svg>
+            <!-- /diagram:dg-access -->
+            </div>
+            <figcaption>Три проверки, прежде чем сотрудник увидит перевозку.</figcaption>
+          </figure>
+          <div class="pair__side">
+            <h3 class="subhead">Как администратор держит права под контролем</h3>
+            <ul class="ticks">
+          <li>Права нескольких сотрудников сравниваются в одной таблице и правятся там же.</li>
+          <li>Аудит доступа всех сотрудников выгружается в Excel: сотрудник, раздел, уровень.</li>
+          <li>Журнал показывает, кто, когда и какое право выдал или снял.</li>
+          <li>«Войти под этим пользователем» — проверить, что именно видит сотрудник.</li>
+          <li>Двухфакторный вход через приложение или код на почту; журнал входов с адресом и устройством.</li>
+          <li>Новый сотрудник заводится копией карточки коллеги — вместе с правами.</li>
+        </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12б. Журнал изменений -->
+    <section class="section changelog" id="changelog" aria-labelledby="changelog-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Права и аудит</span><span class="runhead__item">Журнал изменений</span></p>
+        <div class="pair">
+          <div class="pair__main">
+            <h2 class="section__title" id="changelog-title">Всегда видно, кто и что поменял</h2>
+            <p class="section__lead">Каждое изменение данных записывается в журнал: дата и время, сотрудник, поле, прежнее и новое значение. Журнал есть у каждой записи — перевозки, счёта, договора, карточки сотрудника — и открывается вкладкой «Лог» прямо в карточке.</p>
+            <ul class="ticks">
+              <li>Записываются и поля карточки, и строки табличных частей: услуги, документы, ответственные.</li>
+              <li>Журнал фильтруется по периоду, автору, полю и тексту; ручные правки отмечены отдельно.</li>
+              <li>Права учитываются: поле, скрытое от сотрудника в карточке, скрыто от него и в журнале.</li>
+              <li>Массовые действия, печатные формы и отправленные письма ведутся в отдельных журналах.</li>
+            </ul>
+          </div>
+
+          <figure class="pair__side logsheet">
+            <table class="logsheet__table">
+              <thead>
+                <tr><th scope="col">Когда и кто</th><th scope="col">Поле</th><th scope="col">Было</th><th scope="col">Стало</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>22.06.2026 10:23<br>Мария Ковалёва</td><td>Статус услуги «Авиа»</td><td>В работе</td><td><mark>Закрыто</mark></td></tr>
+                <tr><td>22.06.2026 10:25<br>Мария Ковалёва</td><td>Дата прибытия, факт</td><td>не указана</td><td><mark>22.06.2026</mark></td></tr>
+                <tr><td>23.06.2026 16:02<br>Яна Пестова</td><td>Сумма в строке счёта</td><td>1 200,00 USD</td><td><mark>1 250,00 USD</mark></td></tr>
+              </tbody>
+            </table>
+            <figcaption>Пример: так выглядят записи журнала изменений.</figcaption>
+          </figure>
+        </div>
+
+        <div class="cases">
+          <p class="cases__cols" aria-hidden="true"><span>Ситуация</span><span>Что покажет журнал</span></p>
+          <ul class="cases__list">
+            <li><b>Сумма в счёте отличается от согласованной</b><span>Кто изменил строку, когда и какой была сумма до правки.</span></li>
+            <li><b>У перевозки сменился статус или ответственный</b><span>Кто и когда его перевёл и что стояло раньше.</span></li>
+            <li><b>Сотруднику открыт лишний доступ</b><span>Кто, когда и какое право выдал или снял — в журнале карточки сотрудника.</span></li>
+            <li><b>Нужно понять, что менялось по перевозке за месяц</b><span>Все правки за период одним списком. Тот же журнал читает ИИ-помощник: его можно спросить словами.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12в. Аналитика действий -->
+    <section class="section activity" id="activity" aria-labelledby="activity-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Права и аудит</span><span class="runhead__item">Аналитика действий</span></p>
+        <div class="pair pair--wide-side">
+          <div class="pair__main">
+            <h2 class="section__title" id="activity-title">Статистика работы — по действиям в системе, а не по ощущениям</h2>
+            <p class="section__lead">Система ведёт историю действий сотрудников: какие записи открывали, что искали, какие отчёты запускали, что создавали, меняли и выгружали. По этой статистике видно, на что уходит рабочее время, как загружена команда и где рутину можно убрать.</p>
+            <ul class="ticks">
+              <li>В истории — входы, просмотры карточек, поиски, создание и правки, отчёты, выгрузки в Excel, печатные формы, скачивания, запросы к ИИ.</li>
+              <li>Недельная сводка по каждому сотруднику: время по разделам, записи, с которыми он работал, незавершённые формы.</li>
+              <li>Отчёт «Активность по дням»: первое и последнее посещение, число посещений и изменённых полей.</li>
+              <li>Сотрудник видит собственную аналитику активности, руководитель — работу своих подчинённых.</li>
+            </ul>
+          </div>
+
+          <figure class="shot pair__side" style="--m-w:46rem;--m-x:0rem">
+            <button class="shot__frame" type="button" data-lightbox="assets/img/activity.webp" data-lightbox-w="1960" data-lightbox-h="1172" data-lightbox-alt="Экран системы: раздел «История активности» — список событий за день с датой и временем, пользователем, событием, источником, разделом и объектом.">
+              <span class="shot__canvas"><img src="assets/img/activity.webp" width="1960" height="1172" loading="lazy" decoding="async" alt="Экран системы: история активности за 03.10.2026, найдено 1435 событий. В строках — присутствие на странице, открытие списка, открытие формы редактирования и просмотр карточки перевозки 106092-S-1."><span class="hl" style="--x:0%;--y:1.2%;--w:9.4%;--h:3.6%" aria-hidden="true"></span></span>
+            </button>
+            <figcaption class="shot__caption">
+              <span>История активности: события одного дня на демонстрационном стенде.</span>
+              <button class="shot__zoom" type="button" data-lightbox-trigger>Экран целиком</button>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="cases">
+          <p class="cases__cols" aria-hidden="true"><span>Вопрос</span><span>Что даёт система</span></p>
+          <ul class="cases__list">
+            <li><b><span class="cases__who">Руководитель</span>Чем отдел был занят на этой неделе?</b><span>Недельные сводки подчинённых: время по разделам, главные записи, незавершённое. При подключённом ИИ сводка приходит связным текстом.</span></li>
+            <li><b><span class="cases__who">Руководитель</span>Где команда теряет время?</b><span>Повторяющиеся поиски, одна и та же правка в десятках записей, брошенные формы. Из такого сигнала сразу создаётся задача на улучшение.</span></li>
+            <li><b><span class="cases__who">Сотрудник перед отпуском</span>Как передать дела?</b><span>Отчёт для замещающего: над чем шла работа и что осталось открытым.</span></li>
+            <li><b><span class="cases__who">Сотрудник</span>Что я делал в понедельник и когда открывал эту перевозку?</b><span>Своя история действий с поиском и отчёт о работе за день или неделю.</span></li>
+            <li><b><span class="cases__who">Любой пользователь</span>Как не повторять одно и то же каждый день?</b><span>Система замечает рутину и предлагает готовое решение: сохранённый фильтр, счётчик в меню, отчёт на почту по расписанию.</span></li>
+          </ul>
+        </div>
+
+        <p class="integrations__note">Статистика показывает загрузку и привычки работы, а выводы об эффективности делает руководитель. Сводки с текстом и рекомендациями готовит ИИ, поэтому для них нужен подключённый поставщик ИИ; сама история действий и отчёты работают без него.</p>
+      </div>
+    </section>
+
+    <!-- 12г. ИИ-помощник -->
+    <section class="section ai" id="ai" aria-labelledby="ai-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">ИИ</span><span class="runhead__item">ИИ-помощник и MCP</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="ai-title">ИИ-помощник работает с данными системы — в пределах ваших прав</h2>
+          <p class="section__lead">Помощник открывается в карточке и в списке и отвечает по тем данным, которые перед вами. У него есть встроенные инструменты: он сам находит записи, читает карточки и запускает отчёты, а по вашей просьбе ставит задачу или оставляет комментарий. ИИ подключается по желанию.</p>
+        </header>
+
+        <div class="ai__grid">
+          <dl class="ai__cases">
+            <div><dt>Вопрос по карточке или списку</dt><dd>Спросите, чего не хватает по перевозке или какие счета не оплачены: помощник ответит по данным записи, её файлам и связанным документам.</dd></div>
+            <div><dt>Черновик письма</dt><dd>Помощник готовит ответ клиенту, помогает с формулировками и переводом. Правит и отправляет письмо сотрудник.</dd></div>
+            <div><dt>Задача ИИ-исполнителю</dt><dd>Назначьте ИИ-агента исполнителем задачи: он получит описание и связанные записи с файлами и ответит комментарием.</dd></div>
+            <div><dt>Аналитический отчёт</dt><dd>По аналитической задаче помощник собирает отчёт с текстом, таблицами и графиками. История запусков сохраняется.</dd></div>
+          </dl>
+
+          <div class="toolsheet">
+            <h3 class="toolsheet__title">Встроенные инструменты помощника</h3>
+
+            <div class="toolsheet__group">
+              <h4 class="toolsheet__name">Находит и читает</h4>
+              <dl class="toolsheet__list">
+                <div><dt>Поиск по разделам</dt><dd>Перевозки, счета, договоры, контрагенты — по тем же фильтрам, что в списках.</dd></div>
+                <div><dt>Карточка записи</dt><dd>Поля, табличные части и связанные документы.</dd></div>
+                <div><dt>История изменений</dt><dd>Кто, когда и что менял в записи.</dd></div>
+                <div><dt>Отчёты</dt><dd>Запуск доступных вам отчётов с нужными фильтрами.</dd></div>
+                <div><dt>Сводные таблицы</dt><dd>Группировки и итоги по разделу.</dd></div>
+                <div><dt>Мои задачи</dt><dd>Где вы исполнитель, постановщик или наблюдатель.</dd></div>
+                <div><dt>Сотрудники и график</dt><dd>Кто в каком отделе и кто сейчас в отпуске.</dd></div>
+                <div><dt>Документация</dt><dd>Руководства по разделам системы.</dd></div>
+              </dl>
+            </div>
+
+            <div class="toolsheet__group toolsheet__group--write">
+              <h4 class="toolsheet__name">Делает по вашей просьбе</h4>
+              <dl class="toolsheet__list">
+                <div><dt>Задача</dt><dd>Создать или изменить.</dd></div>
+                <div><dt>Комментарий</dt><dd>Оставить в карточке записи.</dd></div>
+                <div><dt>Напоминание</dt><dd>Поставить на Email, с привязкой к записи или без.</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="agents">
+          <h3 class="subhead">ИИ-агенты с профилем работают как сотрудники</h3>
+          <p class="agents__lead">В системе можно завести несколько ИИ-агентов, у каждого своя инструкция и своя база знаний: <span class="nowrap">ИИ-юрист</span>, <span class="nowrap">ИИ-бухгалтер</span>, ИИ-специалист по таможенному оформлению. Агента упоминают в комментарии или ставят на него задачу, как на обычного сотрудника. Он отвечает прямо в системе — комментарием к записи или задаче, а когда ответ готов, вам приходит уведомление на Email.</p>
+
+          <div class="cases">
+            <p class="cases__cols" aria-hidden="true"><span>Вопрос сотрудника</span><span>Что ответил агент</span></p>
+            <ul class="cases__list">
+              <li><b><span class="cases__who">ИИ-бухгалтеру, к задаче приложен счёт подрядчика</span>«Помоги разобраться, какой здесь НДС: не понимаю, какую ставку указать»</b><span>Прочитал счёт в PDF, определил ставку и то, что налог уже включён в суммы. Разложил каждую строку на сумму без НДС и налог и подсказал, какой вариант ставки выбрать в карточке. После уточнения в комментариях пересчитал итог.</span></li>
+              <li><b><span class="cases__who">ИИ-финансисту, приложен файл подрядчика</span>«Сверь список неоплаченных счетов от подрядчика с нашей базой»</b><span>Сопоставил 42 счёта из файла с данными системы: какие уже оплачены, по каким расходятся сроки оплаты, какие неоплаченные счета подрядчик не указал. Приложил отчёт в Excel и список вопросов, которые нужно уточнить у подрядчика.</span></li>
+              <li><b><span class="cases__who">ИИ-аналитику</span>«Возьми ставки фрахта по маршруту за несколько лет, проверь сезонность и дай прогноз на ноябрь»</b><span>Собрал ноябрьские ставки по годам и показал, что устойчивой сезонности нет. Дал прогноз с диапазоном и пометкой «уверенность низкая», отметил, за какие годы данных нет, и приложил таблицу.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mcp">
+          <div class="mcp__head">
+            <h3 class="mcp__title">MCP: подключайте ИИ-агентов, с которыми уже работаете</h3>
+            <p>В систему встроен сервер MCP — открытого протокола, по которому ИИ-агенты получают инструменты. Поиск, карточки, отчёты и сводные таблицы доступны внешнему агенту — от имени конкретного сотрудника и с его правами.</p>
+          </div>
+
+          <div class="exchange mcp__scheme" role="img" aria-label="Схема: Claude Code, Codex, LibreChat и другие агенты с поддержкой MCP обращаются к «Экспедиторской» с вопросами и вызовами инструментов и получают данные в пределах прав сотрудника.">
+            <ul class="mcp__clients" aria-hidden="true">
+              <li>Claude Code</li>
+              <li>Codex</li>
+              <li>LibreChat</li>
+              <li>Другие агенты с MCP</li>
+            </ul>
+            <div class="exchange__flows" aria-hidden="true">
+              <p class="exchange__flow exchange__flow--out">вопросы и вызовы инструментов</p>
+              <p class="exchange__flow exchange__flow--in">данные в пределах прав сотрудника</p>
+            </div>
+            <span class="exchange__node">Экспедиторская</span>
+          </div>
+
+          <dl class="mcp__uses">
+            <div><dt>Claude Code, Codex и другие агенты</dt><dd>Мощный инструмент аналитика и руководителя. Задайте вопрос словами — агент сам найдёт записи в нескольких разделах, запустит отчёты, сопоставит цифры и соберёт разбор: по клиентам, направлениям, срокам или марже.</dd></div>
+            <div><dt>LibreChat для всех сотрудников</dt><dd>Устанавливаем систему чатов LibreChat: у каждого сотрудника появляется ИИ-чат с доступом к данным системы в пределах его прав. Учётная запись чата создаётся из карточки сотрудника, а сложный анализ запускается как задача и возвращается готовым отчётом.</dd></div>
+          </dl>
+        </div>
+
+        <ul class="rules">
+          <li><b>С вашими правами</b>Инструменты работают под учётной записью сотрудника: помощник видит только то, что доступно ему самому.</li>
+          <li><b>С журналом</b>Каждый вызов инструмента записывается: видно, кто спрашивал и к каким записям обращался ИИ.</li>
+          <li><b>С вашим поставщиком ИИ</b>Система подключается к поставщику ИИ-услуг, которого выбираете вы: российскому, например Selectel или Яндекс Облако, либо иностранному, например OpenRouter. Модель тоже выбираете вы, а расходы на ИИ оплачиваете поставщику напрямую.</li>
+        </ul>
+
+        <p class="integrations__note">Выбор поставщика ИИ зависит от цены и от политики конфиденциальности данных в вашей компании: ИИ-сервис получает данные, переданные ему в запросе, и установка системы на вашем сервере не делает модель локальной. Ответы проверяет сотрудник — письма и решения остаются за ним.</p>
+      </div>
+    </section>
+
+    <!-- 12д. Вайб-код платформа -->
+    <section class="section vibe" id="vibe" aria-labelledby="vibe-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">ИИ</span><span class="runhead__item">Экспедиторский Вайб</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="vibe-title">«Экспедиторский Вайб»: доработки делают ваши сотрудники, а не программисты</h2>
+          <p class="section__lead">По желанию вместе с системой устанавливаем вайб-код платформу на базе открытого T3 Code. Сотрудник описывает задачу обычными словами, а ИИ вносит изменение в систему: новое поле, отчёт, фильтр, правило уведомлений или доступа. Навыки программирования не нужны.</p>
+        </header>
+
+        <div class="asks">
+          <p class="asks__cols" aria-hidden="true"><span>Кто просит</span><span>Запрос своими словами</span><span>Что появится</span></p>
+          <ul class="asks__list">
+            <li><b class="asks__who">Логист</b><span class="asks__text">«Добавь в перевозку дату и время окна выгрузки на складе получателя и фильтр „выгрузка сегодня“»</span><span class="asks__kind">поле и фильтр</span></li>
+            <li><b class="asks__who">Менеджер по продажам</b><span class="asks__text">«Сделай отчёт: причины отказов по котировкам в разрезе направлений за квартал»</span><span class="asks__kind">отчёт</span></li>
+            <li><b class="asks__who">Финансовая служба</b><span class="asks__text">«Покажи в списке счетов число дней просрочки и выдели счета старше 30 дней»</span><span class="asks__kind">колонка в списке</span></li>
+            <li><b class="asks__who">Руководитель</b><span class="asks__text">«Сделай отчёт: сколько дней проходит от запроса клиента до отправки котировки, по менеджерам»</span><span class="asks__kind">отчёт</span></li>
+            <li><b class="asks__who">Руководитель</b><span class="asks__text">«Добавь на главный экран блок: десять клиентов с наибольшим падением оборота к прошлому кварталу»</span><span class="asks__kind">блок на обзоре</span></li>
+            <li><b class="asks__who">Аналитик или ИТ-специалист</b><span class="asks__text">«Скрой закупочные ставки от группы „Стажёры“»</span><span class="asks__kind">правило доступа</span></li>
+          </ul>
+          <p class="asks__note">Запросы приведены для примера: так может выглядеть задача для платформы.</p>
+        </div>
+
+        <ol class="steps steps--row">
+          <li class="steps__item">
+            <h3 class="steps__name">Опишите задачу словами</h3>
+            <p>Сотрудник, который знает процесс, формулирует, что нужно изменить.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__name">ИИ делает доработку на тестовой базе</h3>
+            <p>Рабочая система и её данные при этом не затрагиваются.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__name">Проверьте результат</h3>
+            <p>Посмотрите, как изменение работает на копии, и поправьте его, если нужно.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__name">Перенесите на рабочую базу</h3>
+            <p>С переносом справится системный администратор или ИТ-специалист в штате. Обучение проводим.</p>
+          </li>
+        </ol>
+
+        <figure class="diagram diagram--wide vibe__layers">
+          <div class="diagram__scroll">
+<!-- diagram:dg-layers -->
+<svg class="dg" viewBox="0 0 1000 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-layers-title dg-layers-desc">
+<title id="dg-layers-title">Слои системы: доработки лежат поверх ядра</title>
+<desc id="dg-layers-desc">Четыре слоя снизу вверх: открытые технологии, платформа, отраслевые разделы «Экспедиторской» и слой доработок компании. Доработки хранятся отдельно, поэтому нижние слои обновляются новыми версиями.</desc>
+<defs>
+<marker id="dg-layers-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<rect class="dg-mask" x="120" y="24" width="856" height="64"/>
+<rect class="dg-node dg-node--focal" x="120" y="24" width="856" height="64"/>
+<text class="dg-sub" x="136" y="61">слой 4</text>
+<text class="dg-layer" x="208" y="54">Доработки вашей компании</text>
+<text class="dg-sub" x="208" y="72">поля, отчёты, фильтры, уведомления, правила доступа</text>
+<text class="dg-sub" x="960" y="61" text-anchor="end">меняют ваши сотрудники</text>
+<rect class="dg-mask" x="120" y="88" width="856" height="64"/>
+<rect class="dg-node dg-node--step" x="120" y="88" width="856" height="64"/>
+<text class="dg-sub" x="136" y="125">слой 3</text>
+<text class="dg-layer" x="208" y="118">Экспедиторская</text>
+<text class="dg-sub" x="208" y="136">котировки, перевозки, документы, финансы, обмен с 1С и ЭДО</text>
+<text class="dg-sub" x="960" y="125" text-anchor="end">обновляется новыми версиями</text>
+<rect class="dg-mask" x="120" y="152" width="856" height="64"/>
+<rect class="dg-node dg-node--step" x="120" y="152" width="856" height="64"/>
+<text class="dg-sub" x="136" y="189">слой 2</text>
+<text class="dg-layer" x="208" y="182">Платформа</text>
+<text class="dg-sub" x="208" y="200">права, журнал изменений, задачи, комментарии, ИИ-помощник</text>
+<text class="dg-sub" x="960" y="189" text-anchor="end">обновляется новыми версиями</text>
+<rect class="dg-mask" x="120" y="216" width="856" height="64"/>
+<rect class="dg-node dg-node--system" x="120" y="216" width="856" height="64"/>
+<text class="dg-sub" x="136" y="253">слой 1</text>
+<text class="dg-layer" x="208" y="246">Открытые технологии</text>
+<text class="dg-sub" x="208" y="264">PHP, Laravel, MySQL</text>
+<text class="dg-sub" x="960" y="253" text-anchor="end">бесплатные и открытые</text>
+<path class="dg-arrow" d="M72,272 V33" marker-end="url(#dg-layers-arrow)"/>
+<text class="dg-sub" x="24" y="300">доработки —</text>
+<text class="dg-sub" x="24" y="314">поверх ядра</text>
+<line class="dg-rule" x1="24" y1="328" x2="976" y2="328"/>
+<rect class="dg-node dg-node--focal" x="24" y="338" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="348">слой доработок: хранится отдельно и переживает обновления</text>
+<rect class="dg-node dg-node--step" x="433" y="338" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="457" y="348">ядро системы</text>
+<rect class="dg-node dg-node--system" x="563" y="338" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="587" y="348">основа</text>
+</svg>
+          <!-- /diagram:dg-layers -->
+          </div>
+          <figcaption>Доработки лежат отдельным слоем поверх ядра, поэтому ядро обновляется новыми версиями.</figcaption>
+        </figure>
+
+        <ul class="rules">
+          <li><b>Отдельный слой доработок</b>Изменения сохраняются в специальном слое проекта, отдельно от ядра. Поэтому ядро системы можно обновлять с выходом новых версий.</li>
+          <li><b>Открытая основа</b>T3 Code — открытое приложение для работы с ИИ-агентами программирования.</li>
+          <li><b>Ваш поставщик ИИ</b>Платформа подключается к поставщику ИИ-услуг, которого выбираете вы: российскому, например Selectel или Яндекс Облако, либо иностранному, например OpenRouter. Модель выбираете вы, расходы на ИИ оплачиваете поставщику напрямую — исходя из цены и политики конфиденциальности данных в компании.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Место для кейсов и отзывов: добавляются только с подтверждением заказчика. -->
+
+    <!-- 13. Система принадлежит вам -->
+    <section class="section ownership" id="ownership" aria-labelledby="ownership-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Ваш сервер</span><span class="runhead__item">Независимость от разработчика</span></p>
+        <div class="ownership__grid">
+          <div class="ownership__copy">
+            <h2 class="section__title" id="ownership-title">Система, данные и код принадлежат вам — без зависимости от разработчика</h2>
+            <p class="section__lead">У «Экспедиторской» нет vendor lock-in — зависимости от разработчика программы. Она устанавливается на ваш сервер, исходный код передаётся вместе с системой, а развивать её можно своими силами.</p>
+
+            <dl class="own-list">
+              <div><dt>Любой браузер</dt><dd>Работает в любом современном браузере, доступ — из любой точки.</dd></div>
+              <div><dt>Ваш сервер, ваши данные</dt><dd>Система разворачивается на вашем сервере: физическом или облачном, который вы сами арендуете у любого облачного провайдера — Яндекс Облако, Selectel, Cloud.ru или другого VPS-хостинга. Данные полностью принадлежат вам, а сервер можно перенести к другому провайдеру.</dd></div>
+              <div><dt>Без подписок</dt><dd>Нет абонентской платы и ограничений по количеству: пользователей, перевозок, документов.</dd></div>
+              <div><dt>Открытые технологии</dt><dd>Построена на бесплатных open source технологиях: PHP, Laravel, MySQL.</dd></div>
+              <div><dt>Исходный код с документацией</dt><dd>Передаётся полностью, в открытом виде. Дорабатывайте своими силами или наймите любого программиста или подрядчика на рынке.</dd></div>
+              <div><dt><a href="#vibe">«Экспедиторский Вайб»</a></dt><dd>Доработки делают не технические специалисты, а эксперты и аналитики вашей компании — те, кто точно знает, что нужно бизнесу.</dd></div>
+            </dl>
+          </div>
+
+          <figure class="infra">
+            <div class="infra__map" role="img" aria-label="Схема размещения: «Экспедиторская», её данные, файлы и фоновые задания находятся в вашей инфраструктуре. Сотрудники работают через браузер. С системой связаны 1С, операторы Диадок и Saby, почта; ИИ-сервис подключается отдельно.">
+              <div class="infra__users" aria-hidden="true">Сотрудники в браузере</div>
+              <div class="infra__zone" aria-hidden="true">
+                <span class="infra__zone-name">Ваша инфраструктура</span>
+                <div class="infra__core">Экспедиторская</div>
+                <div class="infra__inner">
+                  <span>Данные и файлы</span>
+                  <span>Фоновые задания</span>
+                </div>
+              </div>
+              <ul class="infra__links" aria-hidden="true">
+                <li><b>1С</b><span>настроенный обмен</span></li>
+                <li><b>Диадок, Saby</b><span>документы и статусы</span></li>
+                <li><b>Почта</b><span>письма</span></li>
+                <li class="is-optional"><b>ИИ-сервис</b><span>подключается отдельно</span></li>
+              </ul>
+            </div>
+            <figcaption>Основная система — на вашем сервере, физическом или арендованном облачном; внешние подключения — в согласованном составе.</figcaption>
+          </figure>
+        </div>
+
+        <ul class="it-line" aria-label="Для ИТ-специалиста">
+          <li>Права по ролям, организациям и офисам</li>
+          <li>Двухфакторный вход</li>
+          <li>Журналы входов и изменений</li>
+          <li>API для чтения данных</li>
+        </ul>
+
+        <div class="compare">
+          <h3 class="compare__title">Чем отличается от привычных вариантов</h3>
+          <div class="compare__scroll" tabindex="0" role="region" aria-label="Сравнение с альтернативами">
+            <table class="compare__table">
+              <thead>
+                <tr>
+                  <th scope="col"><span class="visually-hidden">Вопрос</span></th>
+                  <th scope="col">Таблицы и почта</th>
+                  <th scope="col">Универсальная CRM или учётная система</th>
+                  <th scope="col" class="is-us"><span>Экспедиторская</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="compare__group"><th colspan="4" scope="colgroup">Перевозки и деньги</th></tr>
+                <tr>
+                  <th scope="row">Котировка с продажей, закупкой и маржой</th>
+                  <td data-col="Таблицы и почта">Считается вручную в файле</td>
+                  <td data-col="Универсальная CRM">Как правило, требует доработки</td>
+                  <td data-col="Экспедиторская" class="is-us">Готовый раздел</td>
+                </tr>
+                <tr>
+                  <th scope="row">Перевозка: маршрут, подрядчики, документы, статусы</th>
+                  <td data-col="Таблицы и почта">В разных файлах и письмах</td>
+                  <td data-col="Универсальная CRM">Как правило, нет отраслевой модели</td>
+                  <td data-col="Экспедиторская" class="is-us">Одна карточка</td>
+                </tr>
+                <tr>
+                  <th scope="row">Маржа по каждой перевозке</th>
+                  <td data-col="Таблицы и почта">Отдельный расчёт</td>
+                  <td data-col="Универсальная CRM">Зависит от доработок</td>
+                  <td data-col="Экспедиторская" class="is-us">В карточке: план, счета, оплаты</td>
+                </tr>
+                <tr>
+                  <th scope="row">Обмен с 1С</th>
+                  <td data-col="Таблицы и почта">Двойной ввод</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">«1С:Бухгалтерия 3.0» из коробки, по OData</td>
+                </tr>
+                <tr class="compare__group"><th colspan="4" scope="colgroup">Документы и отчётность</th></tr>
+                <tr>
+                  <th scope="row">Формирование печатных форм PDF/Word/Excel по шаблонам</th>
+                  <td data-col="Таблицы и почта">Вручную</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">Встроенная система шаблонов печатных форм с подстановкой данных из БД</td>
+                </tr>
+                <tr>
+                  <th scope="row">ЭПД и ЭТрН по формату ФНС XML</th>
+                  <td data-col="Таблицы и почта">Вручную в кабинете оператора</td>
+                  <td data-col="Универсальная CRM">Как правило, нет</td>
+                  <td data-col="Экспедиторская" class="is-us">XML формирует система, статусы возвращаются в карточку</td>
+                </tr>
+                <tr>
+                  <th scope="row">Документы Диадока и Saby</th>
+                  <td data-col="Таблицы и почта">Отдельно от перевозок</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">Привязаны к счетам и перевозкам</td>
+                </tr>
+                <tr>
+                  <th scope="row">Реестры для подтверждения НДС 0 %</th>
+                  <td data-col="Таблицы и почта">Собираются вручную</td>
+                  <td data-col="Универсальная CRM">Как правило, нет</td>
+                  <td data-col="Экспедиторская" class="is-us">Четыре реестра и XML для загрузки в 1С</td>
+                </tr>
+                <tr class="compare__group"><th colspan="4" scope="colgroup">Команда и контроль</th></tr>
+                <tr>
+                  <th scope="row">Переписка с клиентами и подрядчиками</th>
+                  <td data-col="Таблицы и почта">В личных почтовых ящиках</td>
+                  <td data-col="Универсальная CRM">Как правило, привязана к клиенту или сделке</td>
+                  <td data-col="Экспедиторская" class="is-us">Письмо само находит перевозку по номеру</td>
+                </tr>
+                <tr>
+                  <th scope="row">Задачи и внутренние обсуждения</th>
+                  <td data-col="Таблицы и почта">В мессенджерах</td>
+                  <td data-col="Универсальная CRM">Как правило, привязаны к сделке или клиенту</td>
+                  <td data-col="Экспедиторская" class="is-us">В карточке перевозки, счёта, договора; ответить можно из почты</td>
+                </tr>
+                <tr>
+                  <th scope="row">Права доступа</th>
+                  <td data-col="Таблицы и почта">Доступ к файлу целиком</td>
+                  <td data-col="Универсальная CRM">По ролям и разделам</td>
+                  <td data-col="Экспедиторская" class="is-us">До отдельного разрешения: финансы, прибыль, свои записи</td>
+                </tr>
+                <tr>
+                  <th scope="row">Кто и что изменил</th>
+                  <td data-col="Таблицы и почта">Не видно</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">Журнал по каждому полю: было и стало</td>
+                </tr>
+                <tr>
+                  <th scope="row">Настройка рабочего места</th>
+                  <td data-col="Таблицы и почта">У каждого свой файл</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">Колонки, фильтры, сводные таблицы и счётчики — с общим доступом</td>
+                </tr>
+                <tr>
+                  <th scope="row">Статистика работы сотрудников</th>
+                  <td data-col="Таблицы и почта">Нет</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">История действий и недельные сводки</td>
+                </tr>
+                <tr class="compare__group"><th colspan="4" scope="colgroup">ИИ и развитие системы</th></tr>
+                <tr>
+                  <th scope="row">ИИ-помощник с доступом к данным</th>
+                  <td data-col="Таблицы и почта">Нет</td>
+                  <td data-col="Универсальная CRM">Зависит от продукта</td>
+                  <td data-col="Экспедиторская" class="is-us">Встроенные инструменты, агенты с профилем и MCP; поставщика ИИ выбираете вы</td>
+                </tr>
+                <tr>
+                  <th scope="row">Доработка под ваши процессы</th>
+                  <td data-col="Таблицы и почта">Формулы и макросы</td>
+                  <td data-col="Универсальная CRM">Силами разработчика программы или интегратора</td>
+                  <td data-col="Экспедиторская" class="is-us">Ваши сотрудники через «Экспедиторский Вайб» или любой программист</td>
+                </tr>
+                <tr class="compare__group"><th colspan="4" scope="colgroup">Владение</th></tr>
+                <tr>
+                  <th scope="row">Где хранятся данные</th>
+                  <td data-col="Таблицы и почта">На компьютерах сотрудников</td>
+                  <td data-col="Универсальная CRM">Часто в облаке разработчика программы</td>
+                  <td data-col="Экспедиторская" class="is-us">На вашем сервере</td>
+                </tr>
+                <tr>
+                  <th scope="row">Исходный код</th>
+                  <td data-col="Таблицы и почта">Не применимо</td>
+                  <td data-col="Универсальная CRM">Обычно закрыт</td>
+                  <td data-col="Экспедиторская" class="is-us">Передаётся вам с документацией</td>
+                </tr>
+                <tr>
+                  <th scope="row">Подписка и лимиты</th>
+                  <td data-col="Таблицы и почта">Не применимо</td>
+                  <td data-col="Универсальная CRM">Как правило, плата за каждого пользователя</td>
+                  <td data-col="Экспедиторская" class="is-us">Без подписок и ограничений по количеству</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <p class="cta-row__text">Обсудим установку на ваш сервер и условия передачи кода.</p>
+          <a class="btn btn--primary" href="#request">Запросить стоимость</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. Расширения -->
+    <section class="section extensions" id="extensions" aria-labelledby="extensions-title">
+      <div class="wrap">
+        <p class="runhead"><span class="runhead__group">Ваш сервер</span><span class="runhead__item">Расширения</span></p>
+        <header class="section__head">
+          <h2 class="section__title" id="extensions-title">Растёт вместе с вашими услугами</h2>
+          <p class="section__lead">База ставок, расчёт хранения и демереджа, трейсинг контейнеров — подключайте то, что нужно вашей компании.</p>
+        </header>
+
+        <div class="ext">
+          <section class="ext__group ext__group--request" aria-labelledby="ext-b">
+            <h3 class="ext__name" id="ext-b">Отраслевые модули по запросу</h3>
+            <dl class="ext__list">
+              <div><dt>База ставок и калькулятор</dt><dd>Сравнение вариантов перевозки по вашей базе закупочных ставок.</dd></div>
+              <div><dt>Хранение, демередж, детеншн</dt><dd>Расчёт контейнерных расходов по дням: свободный период и платные интервалы.</dd></div>
+              <div><dt>Трейсинг контейнеров</dt><dd>События и даты из личного кабинета перевозчика — в карточке заявки.</dd></div>
+              <div><dt>Спецификации груза и коды</dt><dd>Позиции из инвойсов и подбор ГНГ/ЕТСНГ с подсказками.</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <p class="extensions__more">Нужного направления нет в списке? <a href="#request">Расскажите о задаче — обсудим</a>.</p>
+      </div>
+    </section>
+
+    <!-- 15. Как мы начнём -->
+    <section class="section start" id="start" aria-labelledby="start-title">
+      <div class="wrap start__grid">
+        <p class="runhead"><span class="runhead__group">Ваш сервер</span></p>
+        <header class="start__head">
+          <h2 class="section__title" id="start-title">Как мы начнём</h2>
+          <p class="section__lead">Внедрение начинается с ваших процессов, а не с прайс-листа.</p>
+        </header>
+        <ol class="steps">
+          <li class="steps__item">
+            <h3 class="steps__name">Разбираем ваши процессы</h3>
+            <p>Какие перевозки, документы и расчёты ведёт компания и где сейчас теряется время.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__name">Согласуем состав</h3>
+            <p>Разделы системы, обмен с 1С, операторы ЭДО, бланки, права.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__name">Готовим сервер и данные</h3>
+            <p>Установка в вашей инфраструктуре, справочники, шаблоны документов.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__name">Проверяем на ваших сценариях</h3>
+            <p>Проходим путь перевозки от запроса до закрытия на ваших примерах и запускаем работу.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 16. Вопросы -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+
+        <div class="faq__list">
+          <details class="faq__item" name="faq">
+            <summary>Это CRM, TMS или что-то третье?</summary>
+            <div class="faq__answer"><p>Это отраслевая система для экспедитора, которая закрывает задачи сразу нескольких программ. Продажи — запросы клиентов и котировки. Перевозки — маршруты, подрядчики, заявки, документы. Финансы — счета, оплаты, маржа по перевозке и обмен с 1С. Чего нет: телефонии и маркетинговых рассылок, как в универсальных CRM; GPS-мониторинга собственного парка, как в системах для перевозчиков.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Подходит ли система экспедитору без собственного транспорта?</summary>
+            <div class="faq__answer"><p>Да, это основной сценарий. Система связывает заказчика, перевозку и подрядчиков: заявки на обе стороны, счета клиенту и счета исполнителей, маржа по перевозке. Машины и водители ведутся в справочниках — их данные нужны в перевозочных документах, в том числе для транспорта подрядчиков.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Какие виды перевозок можно вести?</summary>
+            <div class="faq__answer"><p>Авиационные, морские, железнодорожные, автомобильные и мультимодальные — несколько видов услуг сочетаются в одной перевозке, у каждой свой подрядчик, документы и статус. Тарифные калькуляторы и загрузка событий от перевозчиков — отдельные модули, которые подключаются по запросу.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Помогает ли система подтвердить ставку НДС 0 %?</summary>
+            <div class="faq__answer"><p>Да. В системе ведутся четыре реестра по формам ФНС: КНД 1155112 — железнодорожные перевозки, 1155113 — автомобильные, 1155114 — воздушные, 1155115 — морские и речные. Строки появляются из транспортных документов перевозки, налоговая база берётся из УПД со ставкой 0 %. За квартал формируется XML-файл сведений, который загружается напрямую в «1С:Бухгалтерию» для подачи отчёта; есть и выгрузка в Excel. Сам отчёт подаёт бухгалтерия.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Заменяет ли система 1С?</summary>
+            <div class="faq__answer"><p>Нет, и не должна. Бухгалтерия остаётся в 1С. «Экспедиторская» ведёт перевозки и их финансы и обменивается с 1С документами, оплатами и справочниками.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли подключить нашу 1С?</summary>
+            <div class="faq__answer"><p>Да. Из коробки поддерживается конфигурация «1С:Бухгалтерия 3.0», обмен идёт по протоколу OData: счета и акты уходят в учётную базу, УПД, оплаты и справочники возвращаются. Перед внедрением проверяем вашу конфигурацию и согласуем состав обмена — от версии и доработок базы зависит объём настройки.</p></div>
+          </details>
+          <details class="faq__item" name="faq" id="faq-edo">
+            <summary>Что умеет интеграция с Диадоком и Saby?</summary>
+            <div class="faq__answer"><p>Входящие и исходящие документы обоих операторов собираются в журналах системы, привязываются к счетам и перевозкам, статусы обновляются. Электронные перевозочные документы — поручение экспедитору, расписка, заказ-заявка, ЭТрН — готовятся в системе и передаются оператору. И для Диадока, и для Saby система выгружает оператору черновик документа, а подписывается он в личном кабинете ЭДО.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли сохранить наши бланки документов?</summary>
+            <div class="faq__answer"><p>Да. Ваши шаблоны Word и Excel подключаются при внедрении: система подставляет в них реквизиты, данные перевозки и строки услуг. Готовый документ можно получить и в PDF.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли отвечать на комментарии из почты, не заходя в систему?</summary>
+            <div class="faq__answer"><p>Да. О новом комментарии ответственные получают письмо. Достаточно нажать «Ответить» в почтовой программе: ответ уйдёт автору и на служебный ящик комментариев, система заберёт его оттуда и добавит в ленту той же перевозки или документа — без цитаты и подписи, с вложениями. Автор ответа определяется по адресу сотрудника.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Как переписка с клиентами попадает в систему? Нужно ли ставить робота в копию?</summary>
+            <div class="faq__answer"><p>Не нужно. Система подключается к почтовым ящикам сотрудников и каждые пять минут забирает новые входящие и отправленные письма. Письмо привязывается к записи, если в теме, тексте или именах вложений есть её номер: перевозки, счёта, УПД, контейнера, авианакладной или коносамента. Ответы на письма из карточки и письма той же цепочки привязываются сами. Когда подходят несколько записей, система предлагает варианты. Правила поиска настраиваются под нумерацию вашей компании при внедрении.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Какие методики управления задачами поддерживает система?</summary>
+            <div class="faq__answer"><p>Система не навязывает одну методику. Роли в задаче повторяют матрицу <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D1%80%D0%B8%D1%86%D0%B0_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8" target="_blank" rel="noopener">RACI</a>: постановщик отвечает за результат, исполнители делают работу, наблюдатели в курсе. Настраиваемые статусы и разрешённые переходы между ними задают поток работы, как в канбане, — списком и календарём, без доски. Подзадачи и дерево подчинённости дают декомпозицию крупной работы, шаблоны по типам задач — повторяемые регламентные процессы. Связанные записи со своими исполнителями и статусами работают как чек-лист по перевозкам и документам. Руководитель видит задачи подчинённых и просрочки, а сроки контролируются уведомлениями по Email, в Telegram или Max.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли сделать так, чтобы менеджер видел только свои перевозки, а прибыль — только руководитель?</summary>
+            <div class="faq__answer"><p>Да. У каждого раздела свой уровень доступа: нет доступа, чтение, запись, удаление. Внутри раздела есть отдельные разрешения: доступ к финансам перевозки, показ прибыли в списке, работа только с записями, где сотрудник указан ответственным. Доступ ограничивается организациями и офисами, отчёты открываются по одному. Права задаются группе и уточняются сотруднику, а сравнение прав и выгрузка аудита в Excel показывают, у кого что открыто.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли узнать, кто и когда изменил данные в перевозке или счёте?</summary>
+            <div class="faq__answer"><p>Да. У каждой записи есть журнал изменений: дата и время, сотрудник, поле, прежнее и новое значение — для полей карточки и для строк табличных частей. Журнал открывается вкладкой «Лог» в карточке и фильтруется по периоду, автору и полю. Поля, скрытые от сотрудника правами, скрыты и в журнале.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Какая статистика по работе сотрудников доступна руководителю?</summary>
+            <div class="faq__answer"><p>Система ведёт историю действий: просмотры, поиски, создание и правки, отчёты, выгрузки. По ней строятся недельные сводки подчинённых, отчёт «Активность по дням» и подсказки, где рутину можно заменить сохранённым фильтром или отчётом по расписанию. Это статистика загрузки и привычек работы; выводы об эффективности остаются за руководителем.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Что умеет ИИ-помощник и можно ли подключить наш ИИ-чат?</summary>
+            <div class="faq__answer"><p>Помощник отвечает на вопросы по карточке или списку, готовит черновики писем, помогает с формулировками и переводом, по аналитической задаче собирает отчёт с таблицами и графиками. У него есть встроенные инструменты: поиск по разделам, чтение карточек и истории изменений, запуск отчётов и сводных таблиц; по вашей просьбе он ставит задачу, оставляет комментарий или напоминание. Можно завести ИИ-агентов с профилем — юриста, бухгалтера, специалиста по таможенному оформлению — и ставить на них задачи, как на сотрудников: агент ответит комментарием, а вам придёт уведомление на Email. Те же инструменты доступны по открытому протоколу MCP: к системе подключаются Claude Code, Codex и другие агенты, а для всех сотрудников мы устанавливаем систему чатов LibreChat. Инструменты работают с правами сотрудника, каждый вызов записывается в журнал.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Обязательно ли подключать ИИ и куда уходят данные?</summary>
+            <div class="faq__answer"><p>Нет, ИИ подключается по желанию — система работает и без него. Она подключается к поставщику ИИ-услуг, которого выбираете вы: российскому, например Selectel или Яндекс Облако, либо иностранному, например OpenRouter. Модель тоже выбираете вы, а расходы на ИИ оплачиваете поставщику напрямую. Поставщик получает данные, переданные в запросе, поэтому выбор зависит не только от цены, но и от политики конфиденциальности в вашей компании. Ответы проверяет сотрудник: письма клиентам он отправляет сам.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли дорабатывать систему без программистов?</summary>
+            <div class="faq__answer"><p>Да, для этого по желанию устанавливается вайб-код платформа «Экспедиторский Вайб» на базе открытого <a href="https://github.com/pingdotgg/t3code" target="_blank" rel="noopener">T3 Code</a>. Сотрудник описывает задачу словами, ИИ добавляет поле, отчёт, фильтр, правило уведомлений или доступа. Доработка делается на отдельной тестовой базе, а после проверки её переносит на рабочую системный администратор или ИТ-специалист компании — этому мы обучаем. ИИ-модель работает у поставщика, которого выбираете вы; расходы на ИИ оплачиваются ему напрямую. Если в компании есть ИТ-компетенции, для доработок подойдёт и любая другая ИИ-система разработки — Cursor, Claude Code, Codex и другие: в комплекте с исходным кодом передаются техническая документация в формате .md и набор skills для ИИ-агентов.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Сможем ли мы обновлять систему после собственных доработок?</summary>
+            <div class="faq__answer"><p>Да. Доработки сохраняются в отдельном слое проекта и не смешиваются с ядром системы, поэтому ядро можно обновлять с выходом новых версий.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Где размещается система и передаётся ли исходный код?</summary>
+            <div class="faq__answer"><p>На вашем сервере — это единственный вариант поставки. Сервер может быть физическим или облачным, который вы сами арендуете у любого облачного провайдера: Яндекс Облако, Selectel, Cloud.ru или другого VPS-хостинга. Перевозки, документы, переписка и финансы хранятся в вашей инфраструктуре. Исходный код передаётся вам вместе с системой; условия его использования, изменения и привлечения сторонних специалистов фиксируются в договоре. Право перепродажи или публичного распространения продукта передача кода не даёт.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Можно ли перенести данные из наших таблиц и прежней системы?</summary>
+            <div class="faq__answer"><p>Да, перенос обсуждается при внедрении. Объём зависит от структуры и качества исходных данных — оцениваем его после знакомства с ними и включаем в предложение.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Сколько стоит система?</summary>
+            <div class="faq__answer"><p>Стоимость зависит от состава: числа пользователей, нужных разделов, интеграций и работ по внедрению. Опишите задачи компании в запросе — подготовим предложение.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17. Запрос стоимости -->
+    <section class="request" id="request" aria-labelledby="request-title">
+      <div class="wrap request__grid">
+        <div class="request__copy">
+          <h2 class="section__title" id="request-title">Узнайте стоимость для вашей компании</h2>
+          <p class="section__lead">Оставьте контакты и пару строк о задачах. Свяжемся, уточним нужные разделы и подключения и подготовим предложение.</p>
+
+          <div class="next">
+            <h3 class="next__title">Что будет дальше</h3>
+            <ol class="next__list">
+              <li>Свяжемся и уточним задачи компании.</li>
+              <li>Покажем систему на ваших сценариях.</li>
+              <li>Пришлём предложение с составом и стоимостью.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="request__form">
+          <script src="https://forms.yandex.ru/_static/embed.js"></script>
+          <iframe
+            class="request__iframe"
+            src="https://forms.yandex.ru/u/6ac1ee33068ff02a82f91c3f?iframe=1"
+            name="ya-form-6ac1ee33068ff02a82f91c3f"
+            title="Запрос стоимости и демонстрации Экспедиторской"
+            width="650"
+            height="850"
+          ></iframe>
+          <p class="request__fallback">Если форма не загрузилась, <a href="https://forms.yandex.ru/u/6ac1ee33068ff02a82f91c3f" target="_blank" rel="noopener">откройте её в отдельной вкладке</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="wordmark" href="#top" aria-label="Экспедиторская — в начало страницы"><span class="wordmark__text">Экспедиторская</span></a>
+        <p>Система управления транспортно-экспедиторской компанией</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Разделы страницы в подвале">
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-1">Обзор</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-1">
+            <li><a href="#pains">Знакомые задачи</a></li>
+            <li><a href="#how">Путь перевозки</a></li>
+            <li><a href="#roles">Что получает каждый</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-2">Возможности</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-2">
+            <li><a href="#sales">Продажи и котировки</a></li>
+            <li><a href="#shipment">Перевозка</a></li>
+            <li><a href="#money">Деньги</a></li>
+            <li><a href="#vinvoice">Входящие счета</a></li>
+            <li><a href="#documents">Документы</a></li>
+            <li><a href="#control">Отчёты</a></li>
+            <li><a href="#api">API</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-3">Стандарты</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-3">
+            <li><a href="#integrations">1С, ЭДО и ЭПД</a></li>
+            <li><a href="#vat">НДС 0 %</a></li>
+            <li><a href="#epd">ЭПД и ЭТрН</a></li>
+            <li><a href="#gost">ГОСТ Р 72552–2026</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-4">Коммуникация</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-4">
+            <li><a href="#team">Работа команды</a></li>
+            <li><a href="#comments">Комментарии</a></li>
+            <li><a href="#mail">Переписка с клиентами</a></li>
+            <li><a href="#tasks">Задачи</a></li>
+            <li><a href="#workspace">Рабочее место</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-5">Права и аудит</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-5">
+            <li><a href="#access">Права доступа</a></li>
+            <li><a href="#changelog">Журнал изменений</a></li>
+            <li><a href="#activity">Аналитика действий</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-6">ИИ</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-6">
+            <li><a href="#ai">ИИ-помощник и MCP</a></li>
+            <li><a href="#vibe">Экспедиторский Вайб</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-7">Ваш сервер</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-7">
+            <li><a href="#ownership">Независимость от разработчика</a></li>
+            <li><a href="#extensions">Расширения</a></li>
+            <li><a href="#start">Как мы начнём</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__group">
+          <h3 class="site-footer__name" id="footer-nav-8">Вопросы</h3>
+          <ul class="site-footer__list" aria-labelledby="footer-nav-8">
+            <li><a href="#faq">Вопросы и ответы</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- TODO перед публикацией: контакты и реквизиты поставщика, документы об обработке данных и условиях использования. -->
+      <p class="site-footer__legal">© 2026 Экспедиторская</p>
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="btn btn--primary" href="#request">Запросить стоимость</a>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Экран системы целиком">
+    <form method="dialog" class="lightbox__bar">
+      <button class="lightbox__close" type="submit">Закрыть</button>
+    </form>
+    <div class="lightbox__scroll">
+      <img class="lightbox__img" alt="">
+    </div>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

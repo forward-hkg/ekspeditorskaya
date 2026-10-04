@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слои системы</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: oklch(98.8% 0.003 100);
+      --color-paper-2: oklch(95.6% 0.006 100);
+      --color-sheet: oklch(100% 0 0);
+      --color-ink: oklch(20% 0.008 100);
+      --color-ink-2: oklch(40% 0.008 100);
+      --color-ink-3: oklch(52% 0.008 100);
+      --color-rule: oklch(87% 0.006 100);
+      --color-accent: oklch(90% 0.175 98);
+      --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    body { font-family: var(--font-body); background: var(--color-paper); color: var(--color-ink); padding: 3rem 2rem; }
+    .frame { max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-2); margin-bottom: 0.5rem; }
+    h1 { font-size: 1.75rem; font-weight: 600; font-stretch: 80%; line-height: 1.15; margin-bottom: 1.5rem; }
+
+    .dg { display: block; width: 100%; height: auto; }
+    .dg text { font-family: var(--font-body); fill: var(--color-ink); }
+    .dg-mask { fill: var(--dg-ground, var(--color-paper)); }
+    .dg-node { stroke-width: 1; }
+    .dg-node--step { fill: var(--color-sheet); stroke: var(--color-ink); }
+    .dg-node--focal { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.5; }
+    .dg-node--system { fill: var(--color-paper-2); stroke: var(--color-ink-3); }
+    .dg-name { font-size: 12px; font-weight: 600; }
+    .dg-layer { font-size: 15px; font-weight: 600; }
+    .dg .dg-sub, .dg .dg-label, .dg .dg-lane { font-family: var(--font-mono); fill: var(--color-ink-2); }
+    .dg-sub { font-size: 9.5px; }
+    .dg-label { font-size: 10px; }
+    .dg .dg-lane { font-size: 11px; font-weight: 500; fill: var(--color-ink); }
+    .dg-rule { stroke: var(--color-rule); stroke-width: 1; }
+    .dg-arrow { fill: none; stroke: var(--color-ink-2); stroke-width: 1.2; }
+    .dg-arrow--dashed { stroke-dasharray: 5 4; }
+    .dg-head { fill: var(--color-ink-2); }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Layer stack — Экспедиторская</p>
+    <h1>Слои системы</h1>
+<svg class="dg" viewBox="0 0 1000 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-layers-title dg-layers-desc">
+<title id="dg-layers-title">Слои системы: доработки лежат поверх ядра</title>
+<desc id="dg-layers-desc">Четыре слоя снизу вверх: открытые технологии, платформа, отраслевые разделы «Экспедиторской» и слой доработок компании. Доработки хранятся отдельно, поэтому нижние слои обновляются новыми версиями.</desc>
+<defs>
+<marker id="dg-layers-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon class="dg-head" points="0 0, 8 3, 0 6"/></marker>
+</defs>
+<rect class="dg-mask" x="120" y="24" width="856" height="64"/>
+<rect class="dg-node dg-node--focal" x="120" y="24" width="856" height="64"/>
+<text class="dg-sub" x="136" y="61">слой 4</text>
+<text class="dg-layer" x="208" y="54">Доработки вашей компании</text>
+<text class="dg-sub" x="208" y="72">поля, отчёты, фильтры, уведомления, правила доступа</text>
+<text class="dg-sub" x="960" y="61" text-anchor="end">меняют ваши сотрудники</text>
+<rect class="dg-mask" x="120" y="88" width="856" height="64"/>
+<rect class="dg-node dg-node--step" x="120" y="88" width="856" height="64"/>
+<text class="dg-sub" x="136" y="125">слой 3</text>
+<text class="dg-layer" x="208" y="118">Экспедиторская</text>
+<text class="dg-sub" x="208" y="136">котировки, перевозки, документы, финансы, обмен с 1С и ЭДО</text>
+<text class="dg-sub" x="960" y="125" text-anchor="end">обновляется новыми версиями</text>
+<rect class="dg-mask" x="120" y="152" width="856" height="64"/>
+<rect class="dg-node dg-node--step" x="120" y="152" width="856" height="64"/>
+<text class="dg-sub" x="136" y="189">слой 2</text>
+<text class="dg-layer" x="208" y="182">Платформа</text>
+<text class="dg-sub" x="208" y="200">права, журнал изменений, задачи, комментарии, ИИ-помощник</text>
+<text class="dg-sub" x="960" y="189" text-anchor="end">обновляется новыми версиями</text>
+<rect class="dg-mask" x="120" y="216" width="856" height="64"/>
+<rect class="dg-node dg-node--system" x="120" y="216" width="856" height="64"/>
+<text class="dg-sub" x="136" y="253">слой 1</text>
+<text class="dg-layer" x="208" y="246">Открытые технологии</text>
+<text class="dg-sub" x="208" y="264">PHP, Laravel, MySQL</text>
+<text class="dg-sub" x="960" y="253" text-anchor="end">бесплатные и открытые</text>
+<path class="dg-arrow" d="M72,272 V33" marker-end="url(#dg-layers-arrow)"/>
+<text class="dg-sub" x="24" y="300">доработки —</text>
+<text class="dg-sub" x="24" y="314">поверх ядра</text>
+<line class="dg-rule" x1="24" y1="328" x2="976" y2="328"/>
+<rect class="dg-node dg-node--focal" x="24" y="338" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="48" y="348">слой доработок: хранится отдельно и переживает обновления</text>
+<rect class="dg-node dg-node--step" x="433" y="338" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="457" y="348">ядро системы</text>
+<rect class="dg-node dg-node--system" x="563" y="338" width="16" height="12" rx="2"/>
+<text class="dg-sub" x="587" y="348">основа</text>
+</svg>
+  </div>
+</body>
+</html>
