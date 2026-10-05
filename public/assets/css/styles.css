@@ -354,6 +354,7 @@ a { color: inherit; }
 
 /* Колонтитул раздела: группа и пункт меню, под которыми раздел стоит в навигации. */
 .runhead {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: var(--space-xl);
@@ -2637,4 +2638,23 @@ a { color: inherit; }
 
 @media print {
   .site-header, .mobile-cta, .lightbox, .shot__zoom { display: none; }
+}
+
+/* Первый экран: что такое «Экспедиторская» — короткий список тезисов. */
+.hero__points {
+  max-width: 23.5rem;
+  margin-top: var(--space-lg);
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+.hero__points b { font-weight: 600; }
+.hero__points li::before { top: 0.45em; }
+@media (max-width: 56.24rem) {
+  .hero__points { max-width: none; font-size: var(--text-base); }
+}
+@media (max-width: 89.99rem) {
+  /* Выступающие влево метки наезжают на список тезисов. */
+  .flag--1,
+  .flag--2 { display: none; }
 }
